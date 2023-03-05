@@ -1,0 +1,125 @@
+{% extends "forum/base-temp.html" %}
+{% load static %}
+
+
+ {% block style %} 
+<link rel="stylesheet" href="{% static 'profiles/main.css' %}">
+  <style>
+    card-registration,select-input,form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    card-registration,select-arrow {
+    top: 13px;
+    }
+    #reset{
+      background-color:  #eeeeee!important;
+      border: #000 !important;
+      box-shadow: #789092 !important;
+      box-shadow:3px 3px 5px #888888; 
+      margin-right: 5vh !important;
+    }
+    #submit{
+      background-color:  #bff5fa!important;
+      box-shadow:3px 3px 5px #888888; 
+    }
+    #reset:hover{
+      background-color: #789092 !important;
+      color: #000 !important;
+    }
+    #submit:hover{
+      color: #000 !important;
+    }
+  </style>
+  {% endblock style %} 
+
+{% block body %}
+    <section class="h-100 bg-light">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100" style="margin-top: 7vh;">
+            <div class="col">
+              <div class="card card-registration my-4">
+                <div class="row g-0">
+                  <div class="col-xl-6 d-none d-xl-block">
+                    <img src="{% static 'profiles/student.png' %}"
+                      alt="Sample photo" class="img-fluid"
+                      style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height: -webkit-fill-available; width: -webkit-fill-available;" />
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="card-body p-md-5 text-black">
+                      <h3 class="mb-5 text-uppercase">Student registration form</h3>
+                      <form action="" method="POST">
+                      {% csrf_token %}
+                      <div class="row" >
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="pno">Phone number</label>
+                            <input type="text" id="pno" name="pno" class="form-control form-control-lg" />
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="email">Email</label>
+                            <input type="text" id="email" name="email" class="form-control form-control-lg" />
+
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="row" >
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="rollno">Roll Number</label>
+                            <input type="text" id="rollno" name="rollno" class="form-control form-control-lg" />
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="standard">Standard</label>
+                            <input type="text" id="standard" name="standard" class="form-control form-control-lg" />
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="division">Division</label>
+                            <input type="text" id="division" name="division" class="form-control form-control-lg" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="schoolname">School Name</label>
+                            <select name="schoolname" id="schoolname" class="form-control form-control-lg">
+                              <option value="" selected disabled></option>
+                              {% for school in schools %}
+                              <option value="{{ school.user.id }}" >{{ school.user.name }}</option>
+                              
+                              {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="pincode">Pincode</label>
+                            <input type="text" id="pincode" name="pincode" class="form-control form-control-lg" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-end pt-3" >
+                        <button type="reset" class="btn btn-light btn-lg" id="reset">Reset all</button>
+                        <button type="submit" class="btn btn-warning btn-lg ms-2" id="submit">Submit form</button>
+                      </div>
+                     </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      {% endblock body %}

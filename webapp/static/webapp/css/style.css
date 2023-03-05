@@ -27,7 +27,7 @@ a:hover,
 a:focus {
 	text-decoration: none;
   outline: none;
-  color: #fff;
+  color: #FBFBFB;
 }
 
 
@@ -48,7 +48,7 @@ button:focus {
 
 ::-webkit-scrollbar {
   width: 7px;
-  background: #151419;
+  background: #0A0A0A;
 }
 
 
@@ -60,7 +60,7 @@ button:focus {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #0057FF;
+  background: #FF7009;
 }
 
 /*--------------------------------------------------------------
@@ -72,17 +72,17 @@ button:focus {
 .main-title h5{
   font-family: 'Livvic', sans-serif;
   font-size: 24px;
-  color: #0057FF;
+  color: #FF7009;
 }
 
 .main-title h2{
   font-family: 'Livvic', sans-serif;
   font-size: 40px;
   letter-spacing: 1.5px;
-  color: #fff;
+  color: #FBFBFB;
 }
 .main-title p{
-  color:#ABA5C1;
+  color:#3C3C43;
   margin:20px 200px;
   font-size: 24px;
   line-height: 30px;
@@ -98,7 +98,7 @@ button:focus {
 }
 
 .navbar .navbar-brand{
-  color: #fff;
+  color: #FBFBFB;
   font-size: 36px;
   font-family: 'Livvic', sans-serif;
 }
@@ -107,26 +107,26 @@ button:focus {
   margin-right: 10px;
 }
 .navbar-light .navbar-brand:hover {
-  color: #fff;
+  color: #FBFBFB;
 }
 .navbar-nav .nav-item .nav-link {
-  color: #ABA5C1 !important;
+  color: #3C3C43 !important;
   font-family: 'Livvic', sans-serif;
   font-size: 20px;
   padding: 10px 20px;
 }
 .navbar-light .navbar-nav .nav-link.active {
-  color: #0057FF !important;
+  color: #FF7009 !important;
 }
 .navbar-nav .nav-item .nav-link:hover {
-  color: #0057FF;
+  color: #FF7009;
 }
 nav.scrolled {
-  background: #151419;
+  background: #0A0A0A;
 }
 
 nav.scrolled  .active{
-  color:  #0057FF !important;
+  color:  #FF7009 !important;
 }
 
 
@@ -137,19 +137,19 @@ nav.scrolled  .active{
   width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #151419;
+  background-color: #0A0A0A;
 }
 
 #hero ul li{
   font-size: 16px;
-  color:#ABA5C1;
+  color:#3C3C43;
   display: inline;
   font-family: 'Livvic', sans-serif;
 }
 #hero h1 {
   margin: 0 0 10px 0;
   font-size: 50px;
-  color:#fff;
+  color:#FBFBFB;
   line-height: 86px;
   font-family: 'Livvic', sans-serif;
 }
@@ -157,12 +157,12 @@ nav.scrolled  .active{
   margin: 0 0 10px 0;
   font-size: 48px;
   font-weight: 500;
-  color:#0057FF;
+  color:#FF7009;
   line-height: 86px;
   font-family: 'Livvic', sans-serif;
 }
 #hero p {
-  color:#fff;
+  color:#FBFBFB;
   margin-bottom: 50px;
   font-size: 24px;
   line-height: 32px;
@@ -171,10 +171,10 @@ nav.scrolled  .active{
 }
 .banner_btn {
   display: inline-block;
-  background: #0057FF;
+  background: #FF7009;
   padding: 0 20px;
-  border: 1px solid #0057FF;
-  color: #fff;
+  border: 1px solid #FF7009;
+  color: #FBFBFB;
   font-size: 16px;
   border-radius: 5px;
   line-height: 48px;
@@ -187,7 +187,7 @@ nav.scrolled  .active{
   transition: all 300ms linear 0s;
 }
 .banner_btn i {
-  background: #fff;
+  background: #FBFBFB;
   color: #000;
   padding: 18px 19px;
   border-radius: 0 0 0 21px;
@@ -199,7 +199,7 @@ nav.scrolled  .active{
 --------------------------------------------------------------*/
 #features{
   padding: 100px 0px;
-  background-color: #151419;
+  background-color: #0A0A0A;
 }
 #features .icon-box {
   text-align: center;
@@ -207,7 +207,7 @@ nav.scrolled  .active{
   border-radius: 10px;
   padding: 36px ;
   transition: all ease-in-out 0.3s;
-  background: #18171D;
+  background: #2C2C2E;
   width: 100%;
 }
 #features .icon-box .icon {
@@ -228,18 +228,18 @@ nav.scrolled  .active{
 #features .icon-box h4 {
   margin-bottom: 15px;
   font-size: 24px;
-  color: #fff;
+  color: #FBFBFB;
 }
 #features .icon-box hr{
   width: 50%;
-  color: #ABA5C1;
+  color: #3C3C43;
   margin-left:25% !important; 
   margin-right:25% !important;
 }
 #features .icon-box p {
   line-height: 24px;
   font-size: 16px;
-  color: #ABA5C1;
+  color: #3C3C43;
   margin-bottom: 0;
   font-family: 'Roboto', sans-serif;
 }
@@ -248,7 +248,7 @@ nav.scrolled  .active{
 --------------------------------------------------------------*/
 #about-us{
   padding: 120px 0px 70px;
-  background-color: #151419;
+  background-color: #0A0A0A;
 }
 #about-us .icon-box {
   margin-top: 10px;
@@ -261,13 +261,13 @@ nav.scrolled  .active{
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 2px solid #0057FF;;
+  border: 2px solid #FF7009;;
   border-radius: 50px;
-  background: #0057FF;;
+  background: #FF7009;;
   transition: 0.5s;
 }
 #about-us .icon-box .icon i {
-  color: #fff;
+  color: #FBFBFB;
   font-size: 32px;
 }
 
@@ -275,7 +275,7 @@ nav.scrolled  .active{
   margin-left: 70px;
   line-height: 24px;
   font-size: 16px;
-  color: #ABA5C1;
+  color: #3C3C43;
   text-align: justify;
 }
 
@@ -362,14 +362,14 @@ nav.scrolled  .active{
 
 #contact{
   padding: 80px 0px;
-  background-color: #151419;
+  background-color: #0A0A0A;
 }
 #contact .contact-form {
   width: 100%;
 }
 
 #contact .contact-form label{
-  color: #ABA5C1 ;
+  color: #3C3C43 ;
   font-size: 20px;
   line-height: 23px;
   margin-bottom: 20px;
@@ -392,19 +392,19 @@ nav.scrolled  .active{
   background: transparent;
 }
 #contact .contact-form .form-control:focus {
-  border-color: #0057FF;
+  border-color: #FF7009;
 }
 ::placeholder{
-  color: #ABA5C1 ;
+  color: #3C3C43 ;
 }
 #contact .contact-form button[type=submit] {
-  background: #0057FF;
+  background: #FF7009;
   border: 0;
   padding: 10px 40px;
-  color: #fff;
+  color: #FBFBFB;
   transition: 0.4s;
   font-size: 20px;
-  color: #fff;
+  color: #FBFBFB;
   border-radius: 4px;
 }
 
@@ -412,12 +412,12 @@ nav.scrolled  .active{
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #fff;
+  background: #FBFBFB;
 }
 
 #footer .footer-top {
   padding: 50px 0 0px 0;
-  background: #fff;
+  background: #FBFBFB;
 }
 #footer .footer-top .footer-contact {
   margin-bottom: 30px;
@@ -476,14 +476,14 @@ nav.scrolled  .active{
 }
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #0057FF;
+  color: #FF7009;
 }
 #footer .footer-top .footer-links .info i{
   font-size: 20px;
-  color: #fff;
+  color: #0A0A0A;
   width: 40px;
   height: 40px;
-  background: rgba(0, 87, 255, 0.5);
+  background: rgba(215, 112, 9, 0.5);
   border-radius: 50px;
   text-align: center;
   line-height: 40px;
@@ -505,7 +505,7 @@ nav.scrolled  .active{
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #0057FF;
+  background: #FF7009;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -513,7 +513,7 @@ nav.scrolled  .active{
 }
 .back-to-top i {
   font-size: 16px;
-  color: #fff;
+  color: #0A0A0A;
   line-height: 0;
 }
 
@@ -532,14 +532,14 @@ nav.scrolled  .active{
   display: block;
   width: 48px;
   height: 48px;
-  border: 2px solid #ABA5C1;
+  border: 2px solid #3C3C43;
   background-size: 14px auto;
   border-radius: 50%;
   z-index: 2;
 }
 .scroll-down i{
   font-size: 20px;
-  color: #fff;
+  color: #FBFBFB;
   line-height: 0;
 }
 /* 
@@ -552,7 +552,7 @@ nav.scrolled  .active{
   width: 12px;
   height: 12px;
   content: "";
-  border: 2px solid #ABA5C1;
+  border: 2px solid #3C3C43;
   border-width: 0px 0 2px 2px;
 } */
 

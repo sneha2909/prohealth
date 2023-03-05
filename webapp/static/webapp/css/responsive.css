@@ -4,7 +4,7 @@
 		padding: 0px 6px;
 	}
 	.navbar {
-		background: #151419;
+		background: #0A0A0A;
 	}
 	.navbar-toggler[aria-expanded="false"] span:nth-child(2) {
 		opacity: 1;
@@ -35,7 +35,7 @@
 		display: block;
 		width: 25px;
 		height: 3px;
-		background: #0057FF;
+		background: #FF7009;
 		margin: auto;
 		margin-bottom: 4px;
 		transition: all 400ms linear;
