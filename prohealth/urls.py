@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from . import views
-from calorie_tracker_app.apps import CalorieTrackerAppConfig
+from calorie_tracker.apps import CalorieTrackerAppConfig
 from django.urls import path
 from .views import index,delete_consume
 
