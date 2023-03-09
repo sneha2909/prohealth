@@ -38,13 +38,6 @@ urlpatterns = [
     path(r'^workout/(?P<id>\d*)/delete$', views.delete_workout), # delete workout
     path(r'^workouts$', views.all_workouts), # get all workouts
     path(r'^legal/tos$', views.tos), # get terms of service
-    path("", views.forum, name="forum"),
-    path("add_post", views.add_post, name="forum_add_post"),
-    path("post/<str:slug>", views.post_detail, name="forum_post_detail"),
-    path("add_comment", views.add_comment, name="forum_add_comment"),
-    path("delete_post", views.delete_post, name="forum_delete_post"),
-    path("delete_comment", views.delete_comment, name="forum_delete_comment"),
-    path("counselor-forum", views.counselor_forum, name="counselor_forum"),
     path('', index, name="index"),
     path('delete/<int:id>', delete_consume, name="delete_consume"),
     path('', views.index, name='index'),
