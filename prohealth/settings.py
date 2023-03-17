@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'webapp.apps.WebappConfig',
+    'calorie_tracker.apps.CalorieTrackerConfig',
+    'workout_buddy.apps.WorkoutBuddyConfig',
+    'workout_tracker.apps.WorkoutTrackerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

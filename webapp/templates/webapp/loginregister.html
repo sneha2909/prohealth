@@ -17,7 +17,7 @@
     <meta name="robot" content="INDEX FOLLOW">
 
     <!-- This how you include externa css -->
-    <link rel="stylesheet" href="{% static 'webapp/loginregister.css' %}">
+    <link rel="stylesheet" href="{% static 'webapp/css/loginregister.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Paathshaala</title>
@@ -59,7 +59,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form method="post" action="/profiles/loginregister/">
+            <form method="post" action="/webapp/loginregister/">
                 {% csrf_token %}
                 <h1>Login</h1>
                 <input name='username' type="text" placeholder="Username" style="margin:7px" required />
@@ -80,12 +80,12 @@
             <div class="overlay">
                 <div class=" overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
-                    {% comment %} <img src="{% static 'profiles/login-illustration.png' %}" style="height: 300 !important;width:300 !important;"> {% endcomment %}
+                    {% comment %} <img src="{% static 'webapp./img/login-illustration.png' %}" style="height: 300 !important;width:300 !important;"> {% endcomment %}
                     <button class="ghost" id="signIn"style="margin-top: 20px;">Login</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Welcome to ProHealth</h1>
-                    {% comment %} <img src="{% static 'profiles/register-illustration.png' %}" style="height: 300 !important;width:300 !important;"> {% endcomment %}
+                    {% comment %} <img src="{% static 'webapp/img/register-illustration.png' %}" style="height: 300 !important;width:300 !important;"> {% endcomment %}
                     <button class="ghost" id="signUp" style="margin-top: 20px;">Sign Up</button>
                 </div>
             </div>

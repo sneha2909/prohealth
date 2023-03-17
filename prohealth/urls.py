@@ -14,20 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.conf.urls import url
-from . import views
-from calorie_tracker.apps import CalorieTrackerAppConfig
-# from django.conf.urls import url
-# from . import views
-# from calorie_tracker_app.apps import CalorieTrackerAppConfig
-from django.urls import path
+from django.urls import path,include
 from webapp.views import home
 
 # app_name = CalorieTrackerAppConfig.name
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('webapp/', include('webapp.urls')),
+    path('workout-buddy/', include('workout_buddy.urls')),
+    path('workout-tracker/', include('workout_tracker.urls')),
+    path('calorie-tracker/', include('calorie_tracker.urls')),
     # path(r'^$', views.login), # index / login page
     # path(r'^user/register$', views.register), # get register page / register user
     # path(r'^user/login$', views.login), # logs in existing user

@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseNotAllowed
 from django.contrib.auth import logout, login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views import View
-from .backend import authenticate
+# from .backend import authenticate
 from .forms import SignUpForm, ProfileForm, UserForm, WorkoutForm
 from.models import Workout
 from django.contrib.auth.models import User
