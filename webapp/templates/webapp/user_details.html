@@ -3,7 +3,7 @@
 
 
  {% block style %} 
-<link rel="stylesheet" href="{% static 'webapp/css/main.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'webapp/css/main.css' %}"> -->
   <style>
     card-registration,select-input,form-control[readonly]:not([disabled]) {
     font-size: 1rem;
@@ -15,41 +15,41 @@
     top: 13px;
     }
     #reset{
-      background-color:  #eeeeee!important;
-      border: #000 !important;
+      /* background-color:  #0a0a0a!important; */
+      border: #e4e4e4 !important;
       box-shadow: #789092 !important;
       box-shadow:3px 3px 5px #888888; 
       margin-right: 5vh !important;
     }
     #submit{
-      background-color:  #bff5fa!important;
+      background-color:  #FF7009!important;
       box-shadow:3px 3px 5px #888888; 
     }
     #reset:hover{
       background-color: #789092 !important;
-      color: #000 !important;
+      color: #fbfbfb !important;
     }
     #submit:hover{
-      color: #000 !important;
+      color: #fbfbfb !important;
     }
   </style>
   {% endblock style %} 
 
 {% block body %}
-    <section class="h-100 bg-light">
+    <section class="h-100" style="background-color: #0a0a0a !important;">
         <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100" style="margin-top: 7vh;">
+          <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
-              <div class="card card-registration my-4">
+              <div class="card card-registration my-4" style="box-shadow:3px 3px 5px #888888; background-color: #0a0a0a;">
                 <div class="row g-0">
                   <div class="col-xl-6 d-none d-xl-block">
-                    <img src="{% static 'webapp/img/student.png' %}"
+                    <img src="{% static 'webapp/img/user details.png' %}"
                       alt="Sample photo" class="img-fluid"
                       style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height: -webkit-fill-available; width: -webkit-fill-available;" />
                   </div>
                   <div class="col-xl-6">
-                    <div class="card-body p-md-5 text-black">
-                      <h3 class="mb-5 text-uppercase">Student registration form</h3>
+                    <div class="card-body p-md-5 text-white">
+                      <h3 class="mb-5 text-uppercase" style="color: #FF7009;">Please Enter your Details</h3>
                       <form action="" method="POST">
                       {% csrf_token %}
                       <div class="row" >
