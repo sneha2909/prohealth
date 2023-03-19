@@ -19,7 +19,7 @@ body {
 h1 {
 	font-weight: bold;
 	margin: 0;
-	color: #fbfbfb;
+	color: #0A0A0A;
 }
 
 h2 {
@@ -81,11 +81,11 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #fbfbfb;
+	border-color: #0A0A0A;
 }
 
 form {
-	background-color: #3c3c43;
+	background-color: #2C2C2E;
 	display: flex;
 	align-items: center;
 	justify-content: center;
