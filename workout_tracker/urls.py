@@ -2,10 +2,10 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.login), # index / login page
-    url(r'^user/register$', views.register), # get register page / register user
-    url(r'^user/login$', views.login), # logs in existing user
-    url(r'^user/logout$', views.logout), # destroys user session
+    # url(r'^$', views.login), # index / login page
+    # url(r'^user/register$', views.register), # get register page / register user
+    # url(r'^user/login$', views.login), # logs in existing user
+    # url(r'^user/logout$', views.logout), # destroys user session
     url(r'^dashboard$', views.dashboard), # get dashboard
     url(r'^workout$', views.new_workout), # get workout page / add workout
     url(r'^workout/(?P<id>\d*)$', views.workout), # get workout / update workout
