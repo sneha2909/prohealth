@@ -1,0 +1,41 @@
+body {
+    padding-top: 5rem;
+}
+
+.starter-template {
+  padding: 1rem 1.5rem;
+  text-align: center;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.main-info {
+  margin-top: 3%;
+  text-align: left;
+}
+
+.body-info {
+  text-align:left;
+}
+
+.main-jumbo {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.btn-gymbuddy {
+  background-color: #003876;
+  color: white;
+}
+
+
+
+
+
+
