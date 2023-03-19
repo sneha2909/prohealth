@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseNotAllowed
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.views import View
 from .forms import SignUpForm, ProfileForm, UserForm, WorkoutForm
 from.models import Workout
 from webapp.models import User
+from webapp.views import loginregister, login_required
 from fuzzywuzzy import fuzz
 
 
