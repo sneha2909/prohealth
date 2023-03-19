@@ -19,6 +19,6 @@ class User(AbstractUser):
         today = date.today()
         delta = relativedelta(today, self.dob)
         return str(delta.years)
-        def __str__(self) -> str:
+    def __str__(self) -> str:
             return self.name
 
