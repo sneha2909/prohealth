@@ -1,8 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-
 from django.contrib.auth import authenticate, login, logout
-# from .models import User
+from .models import User
 from django.contrib import messages
 # Create your views here.
 def home(request):
@@ -10,34 +9,33 @@ def home(request):
 
 
 def loginregister(request):
-    logout(request)
-    # if request.method == 'POST':
-    #     form = request.POST.get('type')
-    #     print(form)
-    #     if form=='register':
-    #         username = request.POST.get('username')
-    #         name = request.POST.get('name')
-    #         passw = request.POST.get('password')
-    #         cpassw = request.POST.get('con_password')
-    #         if passw != cpassw:
-    #             return render(request, 'webapp/loginregister.html', {'message': 'Password Doesnt Match'})
-    #         if User.objects.filter(username=username).exists():
-    #             return render(request, 'webapp/loginregister.html', {'message': 'Username Already exists'})
-    #         user = User.objects.create(username=username, name=name)
-    #         print(user)
-    #         user.set_password(passw)
-    #         user.save()
-    #         user = authenticate(request, username=username, password = passw)
-    #         login(request,user)
-    #         return redirect('user-details')
-    #     elif form=='sign-in':
-    #         username = request.POST.get('username')
-    #         passw = request.POST.get('password')
-    #         user = authenticate(request, username=username, password=passw)
-    #         if user is not None:
-    #             return redirect('user_forum')
-    #         else:
-    #             return render(request, 'webapp/loginregister.html', {'message': 'Username or password is incorrect'})
+    if request.method == 'POST':
+        form = request.POST.get('type')
+        print(form)
+        if form=='register':
+            username = request.POST.get('username')
+            name = request.POST.get('name')
+            passw = request.POST.get('password')
+            cpassw = request.POST.get('con_password')
+            if passw != cpassw:
+                return render(request, 'webapp/loginregister.html', {'message': 'Password Doesnt Match'})
+            if User.objects.filter(username=username).exists():
+                return render(request, 'webapp/loginregister.html', {'message': 'Username Already exists'})
+            user = User.objects.create(username=username, name=name)
+            print(user)
+            user.set_password(passw)
+            user.save()
+            user = authenticate(request, username=username, password = passw)
+            login(request,user)
+            return redirect('user-details')
+        elif form=='sign-in':
+            username = request.POST.get('username')
+            passw = request.POST.get('password')
+            user = authenticate(request, username=username, password=passw)
+            if user is not None:
+                return redirect('home')
+            else:
+                return render(request, 'webapp/loginregister.html', {'message': 'Username or password is incorrect'})
     return render(request, 'webapp/loginregister.html')
 
 
