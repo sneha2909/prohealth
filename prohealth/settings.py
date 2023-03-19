@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'webapp.apps.WebappConfig',
     'calorie_tracker.apps.CalorieTrackerConfig',
+    'forum.apps.ForumConfig',
     'workout_buddy.apps.WorkoutBuddyConfig',
     'workout_tracker.apps.WorkoutTrackerConfig',
     'django.contrib.admin',
