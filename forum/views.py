@@ -3,7 +3,6 @@ from uuid import RESERVED_FUTURE
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 
-from profiles.models import Counselor
 from .models import Profile, Discussion, Reply, ForumPost, ForumComments
 from .forms import *
 from huggingface_hub.inference_api import InferenceApi
@@ -95,19 +94,6 @@ def delete_comment(request):
     comments_count = comments.count()
     return render(request, "forum/forum_post_comments.html", locals())
 
-@login_required
-def counselor_forum(request):
-    if request.user.is_counselor:
-        counselor_obj = Counselor.objects.get(user = request.user)
-        print('hdfs')
-        if counselor_obj.is_active:
-            print('here')
-            posts = ForumPost.objects.filter(is_flagged=True).order_by('-timestamp')
-            return render(request, "forum/forum.html", {'posts':posts})
-        else:
-            return redirect("awaiting-confirmation")
-    else:
-        return JsonResponse({"message":'Not Allowed'})
 
 
 def base_temp(request):

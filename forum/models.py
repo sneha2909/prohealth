@@ -11,7 +11,7 @@ class Profile(models.Model):
     
 
 class Discussion(models.Model):
-    user1 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
     disc_title = models.CharField(max_length=100)
     #disc_id = models.AutoField()
     disc_content = models.CharField(max_length=5000)
