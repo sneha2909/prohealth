@@ -40,22 +40,23 @@ def loginregister(request):
 
 
 def user_details(request):
-	print('HEHU')
-	# if request.method == 'POST':
-	# 	user = User.objects.get(id = request.user.id)
-	# 	user.phone_number = request.POST.get('pno','')
-	# 	user.email = request.POST.get('email','')
-	# 	user.gender=request.POST.get('gender','')
-	# 	user.age=request.POST.get('age','')
-	# 	user.height=request.POST.get('height','')
-	# 	user.curr_wght=request.POST.get('curr_wt','')
-	# 	user.tar_wght=request.POST.get('tar_wt','')
-	# 	user.bmi=request.POST.get('bmi','')
-	# 	user.save()  
-	# 	messages.success(request, f'Your account has been created! You are now able to log in')
+    print('HEHU')
+    if request.method == 'POST':
+        user = User.objects.get(id = request.user.id)
+        user.phone_number = request.POST.get('pno','')
+        user.email = request.POST.get('email','')
+        user.gender=request.POST.get('gender','')
+        user.dob=request.POST.get('dob','')
+        user.save()
+        messages.success(request, f'Your account has been created! You are now able to log in')
+        return render(request, 'webapp/home.html')
+        # user.age=request.POST.get('age','')
+		# user.height=request.POST.get('height','')
+		# user.curr_wght=request.POST.get('curr_wt','')
+		# user.tar_wght=request.POST.get('tar_wt','')
+		# user.bmi=request.POST.get('bmi','')
 	# 	return redirect('school-feed', request.user.student.school.user.slug)
     # return redirect(request, 'home',request.user.slug)
-	return render(request, 'webapp/home.html')
 
 def logout_view(request):
 	logout(request)
