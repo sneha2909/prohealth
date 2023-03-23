@@ -54,7 +54,8 @@ def user_details(request):
 	# 	user.save()  
 	# 	messages.success(request, f'Your account has been created! You are now able to log in')
 	# 	return redirect('school-feed', request.user.student.school.user.slug)
-	return render(request, 'webapp/user_details.html')
+    # return redirect(request, 'home',request.user.slug)
+	return render(request, 'webapp/home.html')
 
 def logout_view(request):
 	logout(request)

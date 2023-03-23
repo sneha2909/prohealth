@@ -32,19 +32,19 @@
         <div class="form-container sign-up-container" style="background-color: #0a0a0a !important;">
             <form method="post">
                 {% csrf_token %}
-                <h1>Create Account</h1>
+                <h1 style="color: #0a0a0a !important;">Create Account</h1>
                 <input name="username" type="text" placeholder="Username" style="margin:15px 7px 7px 7px" required />
                 <input name="name" type="text" placeholder="Name" style="margin-bottom: 7px" required />
                 <input name="password" type="password" placeholder="Password" style="margin-bottom: 7px" required />
                 <input name="con_password" type="password" placeholder="Confirm Password" style="margin-bottom: 7px" required />
-                <div style="border-radius: 0.2rem; background-color: #FF7009;width: 8rem;height: 3rem;border: #FF7009;margin-top:7px;">
+                <!-- <div style="border-radius: 0.2rem; background-color: #FF7009;width: 8rem;height: 3rem;border: #FF7009;margin-top:7px;">
                     <select name="category" style="background-color: #FF7009;border: #FF7009;text-align: center; margin-top: 0.6rem;" >
                         <option value="student" style="background-color: #fbfbfb">Student</option>
                         <option value="school" style="background-color: #fbfbfb">School</option>
                         <option value="counselor" style="background-color: #fbfbfb">Counselor</option>
 
                     </select>
-                </div>
+                </div> -->
                 <br>
                 {% if message %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert" style="padding-right: 1rem;">
@@ -55,7 +55,7 @@
                   </div>
                   {% endif %}
                 <input style="display: None" name="login" value="login">
-                <input type="submit" name='type' value="register" class="btn" style="width: 8rem;height: 3rem; background-color: #FF7009"> 
+                <input type="submit" name='type' value="register" class="btn" style="width: 8rem;height: 3rem; background-color: #FF7009;border: #0a0a0a;"> 
             </form>
         </div>
         <div class="form-container sign-in-container">
@@ -81,7 +81,7 @@
                 <div class=" overlay-panel overlay-left">
                     <h1>Welcome Back!</h1>
                     {% comment %} <img src="{% static 'webapp./img/login-illustration.png' %}" style="height: 300 !important;width:300 !important;"> {% endcomment %}
-                    <button class="ghost" id="signIn"style="margin-top: 20px;">Login</button>
+                    <button class="ghost" id="signIn"style="margin-top: 20px;color: #0a0a0a !important;">Login</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Welcome to ProHealth</h1>
