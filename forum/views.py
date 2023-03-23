@@ -3,7 +3,7 @@ from uuid import RESERVED_FUTURE
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Profile, Discussion, Reply, ForumPost, ForumComments
+from .models import UserProfile, Discussion, Reply, ForumPost, ForumComments
 from .forms import *
 from huggingface_hub.inference_api import InferenceApi
 from django.http import JsonResponse
