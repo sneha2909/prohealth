@@ -40,8 +40,7 @@ def loginregister(request):
 
 
 def user_details(request):
-    print('HEHU')
-    if request.method == 'POST':
+    if request.method == 'GET':
         user = User.objects.get(id = request.user.id)
         # user.phone_number = request.POST.get('pno','')
         # user.email = request.POST.get('email','')

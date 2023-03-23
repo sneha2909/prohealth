@@ -6,8 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link rel="icon" href="{% static 'img/logo.png'%}" type="image/png">
-    <title>FitLife.ai</title>
+    <!-- <link rel="icon" href="{% static 'img/logo.png'%}" type="image/png"> -->
+    <title>ProHealth</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -22,8 +22,9 @@
     <header class="header-area">
         <nav class="navbar navbar-expand-lg fixed-top navbar-light">
             <div class="container-fluid mx-5">
-                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'webapp/img/logo.png'%}">
-                    FitLife.ai</a>
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <!-- <img src="{% static 'webapp/img/logo.png'%}"> -->
+                    ProHealth</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -61,28 +62,22 @@
             <div class="row px-5">
                 <div class="col-lg-7 d-lg-flex flex-lg-column justify-content-center  order-2 order-lg-1"
                     data-aos="fade-up">
-                    <div style="z-index: 999;">
-                        <ul>
-                            <li>TRAIN SMARTER</li>
-                            <li>•</li>
-                            <li class="ps-3">HUSTLE HARDER</li>
-                            <li class="ps-3">GET STRONGER</li>
-                        </ul>
+                    <div style="z-index: 999; margin-top: 24vh;" >
                         <h1>Be <span>better</span> everyday</h1>
-                        <p>Get your perfect workout. Stay fit physically and mentally anytime, anywhere with FitLife.ai
+                        <p>Get your perfect workout. Stay fit physically and mentally anytime, anywhere with ProHealth
                         </p>
                         <!---sessions django---->
                         <div class="button">
                             <a class="banner_btn" href="{% url 'loginregister' %}">GET YOUR PERSONALIZED WORKOUT NOW</a>
-                            <a class="banner_btn ms-3" href="#"
-                                style="background: transparent; border: 1px solid #FBFBFB;">Book a Class</a>
+                            <!-- <a class="banner_btn ms-3" href="#"
+                                style="background: transparent; border: 1px solid #FBFBFB;">Book a Class</a> -->
                         </div>
                         <a href="#features" class="scroll-down  d-flex align-items-center justify-content-center mt-5" address="true"><i class="fas fa-arrow-down"></i></a>
 
                     </div>
                 </div>
                 <div class="col-lg-5 d-lg-flex flex-lg-column order-1  hero-img" data-aos="fade-up">
-                    <img src="{% static 'webapp/img/home.png'%}" class="img-fluid" alt="" style="margin-top: 88px;">
+                    <img src="{% static 'webapp/img/home-bg.png'%}" class="img-fluid" alt="" style="margin-top: 88px;">
                 </div>
 
             </div>
@@ -104,7 +99,7 @@
                         </div>
                         <h4>Workout Plans</h4>
                         <hr>
-                        <p>Get training tips, exercise advice, and workout routines  and start to transform your body today!</p>
+                        <p>Get personalised workouts based on your goals! </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
@@ -114,7 +109,7 @@
                         </div>
                         <h4>Track Progress</h4>
                         <hr>
-                        <p>Track your strength training workouts so you're on the road to muscle-building success.</p>
+                        <p>Track your progress and recieve adaptive workout routines!</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
@@ -122,9 +117,9 @@
                         <div class="icon" style="background: #FF24A8;">
                             <img src="{% static 'webapp/img/feature3.png'%}">
                         </div>
-                        <h4>Diet Plans</h4>
+                        <h4>Diet Recommendation</h4>
                         <hr>
-                        <p>Get a healthy diet plan with meals suggestions as per your health requirements.</p>
+                        <p>Get a healthy diet plan based on the number of calories you want to eat!</p>
                     </div>
                 </div>
             </div>
@@ -232,7 +227,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-md-6 footer-contact">
-                        <a href="{% url 'home' %}"><img src="{% static 'webapp/img/footer-logo.png'%}" class="footer-image">FitLife.ai</a>
+                        <a href="{% url 'home' %}"><img src="{% static 'webapp/img/footer-logo.png'%}" class="footer-image">ProHealth</a>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, cumque. Assumenda sunt fugit
                             omnis sit enim ut repellendus molestias officiis atque non similique dolores corrupti,
                             dignissimos expedita rerum totam in.</p>
@@ -261,7 +256,7 @@
                         <h4>Contact</h4>
                         <div class="info">
                             <i class="fas fa-envelope "></i>
-                            <span>fitlife.ai@xmail.com</span>
+                            <span>prohealth@xmail.com</span>
                         </div>
                         <div class="info mt-4">
                             <i class="fas fa-mobile-alt"></i>

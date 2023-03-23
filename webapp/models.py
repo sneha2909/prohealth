@@ -13,12 +13,12 @@ class User(AbstractUser):
     # slug = AutoSlugField(populate_from='name')
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
-    dob = models.DateField(max_length=8)
-    age = models.IntegerField() 
-    def __str__(self):
-        today = date.today()
-        delta = relativedelta(today, self.dob)
-        return str(delta.years)
+    # dob = models.DateField(max_length=8)
+    # age = models.IntegerField() 
+    # def __str__(self):
+    #     today = date.today()
+    #     delta = relativedelta(today, self.dob)
+    #     return str(delta.years)
     def __str__(self) -> str:
             return self.name
 
