@@ -3,6 +3,7 @@ from django.contrib import messages # access django's `messages` module.
 from .models import User, Workout, Exercise
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from webapp.models import User
+
 def dashboard(request):
     """Loads dashboard."""
 
