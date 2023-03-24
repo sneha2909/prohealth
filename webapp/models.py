@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from autoslug import AutoSlugField
 from dateutil.relativedelta import relativedelta
 from datetime import date
+
 class User(AbstractUser):
     username = models.CharField(max_length=255, unique=True, null=True)
     name = models.CharField(max_length=255)
