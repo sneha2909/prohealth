@@ -174,7 +174,7 @@ nav.scrolled  .active{
   background: #FF7009;
   padding: 0 20px;
   border: 1px solid #FF7009;
-  color: #FBFBFB;
+  color: #0a0a0a;
   font-size: 16px;
   border-radius: 5px;
   line-height: 48px;
@@ -261,7 +261,7 @@ nav.scrolled  .active{
   justify-content: center;
   width: 22px;
   height: 22px;
-  border: 2px solid #FF7009;;
+  border: 2px solid #FF7009;
   border-radius: 50px;
   background: #FF7009;;
   transition: 0.5s;

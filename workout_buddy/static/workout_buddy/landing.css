@@ -1,0 +1,72 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    position: fixed;
+    top: 4;
+    left:0;
+    color: #f1f1f1;
+    width: 100%;
+}
+
+.mainlogo {
+    font-size: 3.5rem;
+    margin-top: 5%;
+    
+}
+h1{
+    text-align: center;
+    margin: 4vh;
+}
+.home-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #0a0a0a;
+    color: #fbfbfb;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 4%;
+    padding-top: 1%;
+
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+}
+button:focus {
+	outline: none;
+	box-shadow: none;
+}
+.banner_btn {
+    display: inline-block;
+    background: #FF7009;
+    padding: 0 20px;
+    border: 1px solid #FF7009;
+    color: #0a0a0a !important;
+    font-size: 16px;
+    border-radius: 5px;
+    line-height: 48px;
+    outline: none !important;
+    box-shadow: none !important;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 300ms linear 0s;
+  }
+  .banner_btn i {
+    background: #FBFBFB;
+    color: #000;
+    padding: 18px 19px;
+    border-radius: 0 0 0 21px;
+    margin-left: 17px;
+    transition: all 300ms linear 0s;
+  }

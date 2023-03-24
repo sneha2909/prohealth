@@ -14,6 +14,9 @@
     card-registration,select-arrow {
     top: 13px;
     }
+    body{
+      background-color: #0a0a0a !important;
+    }
     #reset{
       /* background-color:  #0a0a0a!important; */
       border: #e4e4e4 !important;
@@ -36,7 +39,7 @@
   {% endblock style %} 
 
 {% block body %}
-    <section class="h-100" style="background-color: #0a0a0a !important;">
+    <section class="h-100">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
@@ -69,42 +72,20 @@
                       </div>
       
                       <div class="row" >
-                        <div class="col-md-4 mb-4">
-                          <div class="form-outline">
-                            <label class="form-label" for="rollno">Roll Number</label>
-                            <input type="text" id="rollno" name="rollno" class="form-control form-control-lg" />
-                          </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                          <div class="form-outline">
-                            <label class="form-label" for="standard">Standard</label>
-                            <input type="text" id="standard" name="standard" class="form-control form-control-lg" />
-                          </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                          <div class="form-outline">
-                            <label class="form-label" for="division">Division</label>
-                            <input type="text" id="division" name="division" class="form-control form-control-lg" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <label class="form-label" for="schoolname">School Name</label>
-                            <select name="schoolname" id="schoolname" class="form-control form-control-lg">
-                              <option value="" selected disabled></option>
-                              {% for school in schools %}
-                              <option value="{{ school.user.id }}" >{{ school.user.name }}</option>
-                              
-                              {% endfor %}
+                            <label class="form-label" for="gender">Gender</label>
+                            <select id="gender" name="gender" class="form-control form-control-lg">
+                              <option value="male">Male</option>
+                              <option vale="female">Female</option>
                             </select>
+                            <!-- <input type="text" id="gender" name="gender" class="form-control form-control-lg" /> -->
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <label class="form-label" for="pincode">Pincode</label>
-                            <input type="text" id="pincode" name="pincode" class="form-control form-control-lg" />
+                            <label class="form-label" for="dob">Date of birth</label>
+                            <input type="date" id="dob" name="dob" class="form-control form-control-lg" />
                           </div>
                         </div>
                       </div>

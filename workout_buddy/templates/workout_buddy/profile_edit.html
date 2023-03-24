@@ -1,4 +1,8 @@
-{% extends "main/base.html" %} {% block content %} {% load static %} {% include "main/navbar.html" %}
+{% extends "webapp/base.html" %} 
+
+{% load static %} 
+{% block body %} 
+{% include "workout_buddy/navbar.html" %}
 <div class="jumbotron">
     <div class="main-jumbo">
         <h2>Edit Profile</h2>
@@ -29,4 +33,4 @@
         </form>
     </div>
 </div>
-{% endblock %}
+{% endblock body%}

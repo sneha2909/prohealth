@@ -1,11 +1,14 @@
-{% extends "main/base.html" %} {% block content %} {% load static %} {% include "main/navbar.html" %}
+{% extends "webapp/base-temp.html" %}  
+{% load static %} 
+{% block body %}
+{% include "workout_buddy/navbar.html" %}
 <div class="jumbotron">
     <div class="main-jumbo">
         <div class="row">
             <div class="col-md-4">
                 {% if user.profile.image %}
                 <img class="img-responsive" src="{{ user.profile.image.url }}" width="100%"> {% else %}
-                <img class="img-responsive" src="{% static 'main/default.png' %}" width="100%"> {% endif %}
+                <img class="img-responsive" src="{% static 'workout_buddy/default.png' %}" width="100%"> {% endif %}
                 <div class="main-info">
                     <h2>{{ user.first_name }} {{ user.last_name }}</h2>
                     <p>@{{user.username}}</p>
@@ -18,7 +21,7 @@
                     </p>
                     {% endif %}
                     <p>{{ user.profile.bio }}</p>
-                    <a class="btn btn-gymbuddy" style="width: 100%;" href="/profile_edit/">Edit Profile</a>
+                    <a class="btn btn-gymbuddy" style="width: 100%;" href="{% url 'profile_edit' %}">Edit Profile</a>
                 </div>
                 <hr>
                 <div class="main-info">

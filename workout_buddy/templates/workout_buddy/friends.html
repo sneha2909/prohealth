@@ -1,5 +1,12 @@
-{% extends "main/base.html" %} {% load static %} {% block pageHeader %}
-<link rel="stylesheet" href="{% static 'main/friend.css' %}" type=text/css> {% endblock pageHeader %} {% block content %} {% include "main/navbar.html" %}
+{% extends "webapp\base-temp.html" %} 
+<!-- webapp\templates\base-temp.html -->
+{% load static %} 
+{% block style %}
+<link rel="stylesheet" href="{% static 'workout_buddy/friend.css' %}" type=text/css>
+{% endblock style %}
+
+ {% block body %} 
+ {% include "workout_buddy/navbar.html" %}
 <div class="jumbotron container-fluid">
     {% if friend_list|length == 0 %}
     <h2>There are no GymBuddies near you that like
@@ -12,7 +19,7 @@
     <div class="row" style="margin:auto;">
         {% for friend in friend_list %}
         <div class="card" style="margin:auto; margin-top:3vw; width:18rem;">
-            <img class="card-img-top" src="{{ friend.profile.image.url }}" alt="Card image cap">
+            <!-- <img class="card-img-top" src="{{ friend.profile.image.url }}" alt="Card image cap"> -->
             <div class="card-body">
                 <h5 class="card-title">{{friend.get_full_name}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">@{{ friend.username }}</h6>
@@ -65,4 +72,4 @@
     </div> -->
 
 </div>
-{% endblock %}
+{% endblock body %}
