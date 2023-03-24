@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages # access django's `messages` module.
-from .models import User, Workout, Exercise
+from .models import Workout, Exercise
+from webapp.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from webapp.models import User
 
