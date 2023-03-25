@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'webapp.apps.WebappConfig',
-    'calorie_tracker.apps.CalorieTrackerConfig',
+    'calorie_tracker_app.apps.CalorieTrackerAppConfig',
     'forum.apps.ForumConfig',
     'workout_buddy.apps.WorkoutBuddyConfig',
     'workout_tracker.apps.WorkoutTrackerConfig',

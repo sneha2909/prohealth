@@ -6,7 +6,7 @@ from django.conf import settings
 from autoslug import AutoSlugField
 
 
-class Profile(models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE)
     
 
