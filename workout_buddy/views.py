@@ -1,14 +1,27 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseForbidden, HttpResponseNotAllowed
-from django.contrib.auth import logout, login
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.views import View
-# from .backend import authenticate
 from .forms import SignUpForm, ProfileForm, UserForm, WorkoutForm
 from.models import Workout
-from django.contrib.auth.models import User
+from webapp.models import User
+from webapp.views import loginregister, login_required
 from fuzzywuzzy import fuzz
+
+
+@login_required
+def index(request):
+    user_activity = request.user.profile.activity1
+    context = {
+        'user_activity': user_activity,
+    }
+    return render(request, 'main/landing.html', context)
+
+@login_required
+def about(request):
+    return render(request, 'main/about.html')
+
+
 @login_required
 def friends(request):
     friend_list = []

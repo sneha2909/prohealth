@@ -110,7 +110,7 @@ button:focus {
   color: #FBFBFB;
 }
 .navbar-nav .nav-item .nav-link {
-  color: #3C3C43 !important;
+  color: #cacacc !important;
   font-family: 'Livvic', sans-serif;
   font-size: 20px;
   padding: 10px 20px;
@@ -142,7 +142,7 @@ nav.scrolled  .active{
 
 #hero ul li{
   font-size: 16px;
-  color:#3C3C43;
+  color:#FBFBFB;
   display: inline;
   font-family: 'Livvic', sans-serif;
 }
@@ -239,7 +239,7 @@ nav.scrolled  .active{
 #features .icon-box p {
   line-height: 24px;
   font-size: 16px;
-  color: #3C3C43;
+  color: #eceaea;
   margin-bottom: 0;
   font-family: 'Playfair Display', serif;
 }
@@ -259,8 +259,8 @@ nav.scrolled  .active{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 22px;
+  height: 22px;
   border: 2px solid #FF7009;;
   border-radius: 50px;
   background: #FF7009;;
@@ -275,7 +275,7 @@ nav.scrolled  .active{
   margin-left: 70px;
   line-height: 24px;
   font-size: 16px;
-  color: #3C3C43;
+  color: #eceaea;
   text-align: justify;
 }
 
@@ -284,7 +284,7 @@ nav.scrolled  .active{
 	z-index: 1;
   margin-top: -30px;
 }
-.about-image .card.card-1{
+/* .about-image .card.card-1{
   position: absolute;
   top: 50px;
   left: -180px;
@@ -297,7 +297,7 @@ nav.scrolled  .active{
   right: -250px;
   padding: 5px;
   border-radius: 33px;
-}
+} */
 .about-image .icon{
   background: rgba(48, 231, 2, 0.2);
   color: #30E702;
