@@ -1,10 +1,10 @@
 from calorie_tracker_app.apps import CalorieTrackerAppConfig
 from django.urls import path
-from .views import index,delete_consume
+from . import views
 
-app_name = CalorieTrackerAppConfig.name
+# app_name = "calorie_tracker_app"
 
 urlpatterns = [
-    path('', index, name="index"),
-    path('delete/<int:id>', delete_consume, name="delete_consume"),
+    path('', views.calorie_tracker, name="index"),
+    path('delete/<int:id>', views.delete_consume, name="delete_consume"),
 ]
