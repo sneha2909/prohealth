@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages # access django's `messages` module.
-from .models import User, Workout, Exercise
+from .models import Workout, Exercise
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from webapp.models import User
 
@@ -9,7 +9,7 @@ def dashboard(request):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id = request.user.id)
 
         # Get recent workouts for logged in user:
         recent_workouts = Workout.objects.filter(user__id=user.id).order_by('-id')[:4]
@@ -21,7 +21,7 @@ def dashboard(request):
         }
 
         # Load dashboard with data:
-        return render(request, "workout/dashboard.html", data)
+        return render(request, "workout_tracker/dashboard.html", data)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -42,7 +42,7 @@ def new_workout(request):
 
         if request.method == "GET":
             # If get request, load `add workout` page with data:
-            return render(request, "workout/add_workout.html", data)
+            return render(request, "workout_tracker/add_workout.html", data)
 
         if request.method == "POST":
             # Unpack request.POST for validation as we must add a field and cannot modify the request.POST object itself as it's a tuple:
@@ -92,7 +92,7 @@ def workout(request, id):
         }
 
         # If get request, load workout page with data:
-        return render(request, "workout/workout.html", data)
+        return render(request, "workout_tracker/workout.html", data)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -125,7 +125,7 @@ def all_workouts(request):
         }
 
         # Load dashboard with data:
-        return render(request, "workout/all_workouts.html", data)
+        return render(request, "workout_tracker/all_workouts.html", data)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
