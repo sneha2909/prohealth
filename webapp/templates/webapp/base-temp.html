@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -41,8 +40,10 @@
 
   <!--================ Navbar =================-->
   <header class="header-area">
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
-      <div class="container-fluid mx-5">
+    {% block submenu %}
+    {% endblock submenu %}
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #0a0a0a;" id="main navbar">
+      <div class="container-fluid mx-5" >
         <a class="navbar-brand" href="{% url 'home' %}">
           <!-- <img src="{% static 'webapp/img/logo.png'%}"> -->
           ProHealth</a>
@@ -55,7 +56,7 @@
         <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#hero">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}#hero">Home</a>
           </li>
           <li class="nav-item">
             <!-- <a class="nav-link" href="#features">Features</a> -->
@@ -85,17 +86,17 @@
               </ul>
             </div>
             {% elif not user.is_authenticated %}
-            <a class="nav-link" href="#features">Features</a>
+            <a class="nav-link" href="{% url 'home' %}#features">Features</a>
             {% endif %}
           </li>
 
           <!-- </div> -->
 
           <li class="nav-item">
-            <a class="nav-link" href="#about-us">About Us</a>
+            <a class="nav-link" href="{% url 'home' %}#about-us">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="{% url 'home' %}#contact">Contact</a>
           </li>
           <li class="nav-item">
             <!-- <a class="nav-link" href="{% url 'loginregister' %}">Register/Login</a> -->
@@ -113,6 +114,7 @@
       </div>
       </div>
     </nav>
+
   </header>
   {% block body %}
 
