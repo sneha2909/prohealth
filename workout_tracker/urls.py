@@ -1,4 +1,5 @@
-from django.urls import re_path as url, path
+from django.urls import re_path as url
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -7,7 +8,7 @@ urlpatterns = [
     # url(r'^user/login$', views.login), # logs in existing user
     # url(r'^user/logout$', views.logout), # destroys user session
     # url(r'^$', views.dashboard),
-    path('', views.dashboard),# get dashboard
+    path('', views.dashboard, name='workout-tracker'),# get dashboard
     url(r'^workout$', views.new_workout), # get workout page / add workout
     url(r'^workout/(?P<id>\d*)$', views.workout), # get workout / update workout
     url(r'^workout/(?P<id>\d*)/exercise$', views.exercise), # add exercise

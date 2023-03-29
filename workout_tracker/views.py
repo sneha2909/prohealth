@@ -3,14 +3,14 @@ from django.contrib import messages # access django's `messages` module.
 from .models import Workout, Exercise
 from webapp.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from webapp.models import User
 
 def dashboard(request):
     """Loads dashboard."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id=request.user.id)
+        print(user)
 
         # Get recent workouts for logged in user:
         recent_workouts = Workout.objects.filter(user__id=user.id).order_by('-id')[:4]
@@ -22,7 +22,7 @@ def dashboard(request):
         }
 
         # Load dashboard with data:
-        return render(request, "workout/dashboard.html", data)
+        return render(request, "workout_tracker/dashboard.html", data)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
