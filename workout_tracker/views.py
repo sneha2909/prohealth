@@ -9,8 +9,8 @@ def dashboard(request):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.user.id)
-        print(user)
+
+        user = User.objects.get(id = request.user.id)
 
         # Get recent workouts for logged in user:
         recent_workouts = Workout.objects.filter(user__id=user.id).order_by('-id')[:4]
