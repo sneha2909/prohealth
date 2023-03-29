@@ -9,6 +9,7 @@ def home(request):
 
 
 def loginregister(request):
+    logout(request)
     if request.method == 'POST':
         form = request.POST.get('type')
         print(form)
@@ -33,6 +34,7 @@ def loginregister(request):
             passw = request.POST.get('password')
             user = authenticate(request, username=username, password=passw)
             if user is not None:
+                login(request,user)
                 return redirect('home')
             else:
                 return render(request, 'webapp/loginregister.html', {'message': 'Username or password is incorrect'})
@@ -40,7 +42,6 @@ def loginregister(request):
 
 
 def user_details(request):
-    print('HEHU')
     if request.method == 'POST':
         user = User.objects.get(id = request.user.id)
         user.phone_number = request.POST.get('pno','')
@@ -55,8 +56,17 @@ def user_details(request):
 		# user.curr_wght=request.POST.get('curr_wt','')
 		# user.tar_wght=request.POST.get('tar_wt','')
 		# user.bmi=request.POST.get('bmi','')
+    return render(request, 'webapp/user_details.html', locals())
 	# 	return redirect('school-feed', request.user.student.school.user.slug)
     # return redirect(request, 'home',request.user.slug)
+
+def home(request):
+	if request.user.is_authenticated:
+		print("User is logged in :)")
+		print(f"Username --> {request.user.username}")
+	else:
+		print("User is not logged in :(")
+	return render(request,'webapp/home.html',{'user':request.user})
 
 def logout_view(request):
 	logout(request)

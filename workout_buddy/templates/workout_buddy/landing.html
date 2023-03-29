@@ -1,0 +1,44 @@
+{% extends "webapp/base-temp.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}">
+{% endblock style %}
+
+{% block body %}
+{% block submenu %}
+<!-- Sidebar -->
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;">
+    <div class="position-sticky" style="background-color: #0a0a0a;">
+        <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
+            <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
+                aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Friends</span>
+            </a>
+            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple active">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Workout</span>
+            </a>
+            <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fas fa-lock fa-fw me-3"></i><span>Profile</span></a>
+        </div>
+    </div>
+</nav>
+<!-- Sidebar -->
+{% endblock submenu %}
+<main style="margin-top: 58px;">
+    <div class="container pt-4">
+        <div>
+            <img src="{% static 'workout_buddy/gym-5.jpg' %}" class= "img-center" alt="gym">
+        </div>
+        <div>
+            <h3 style="text-align: center; margin: 2vh;color: #fbfbfb;">What are you training today?</h3>
+            <div class="button">
+                <a class="banner_btn" href="{% url 'friends' %}">Find a GymBuddy</a>
+                <a class="banner_btn ms-3" href="{% url 'workout' %}">Go Workout</a>
+            </div>
+        </div>
+        <!--Main Navigation-->
+    </div>
+</main>
+
+{% endblock body%}

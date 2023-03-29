@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{% static 'webapp/css/loginregister.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Paathshaala</title>
+    <title>ProHealth</title>
     <!-- add icon link -->
     <link rel="icon" href="{% static 'webapp/img/circular paathshala logo.png' %}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
         <div class="form-container sign-up-container" style="background-color: #0a0a0a !important;">
             <form method="post">
                 {% csrf_token %}
-                <h1 style="color: #0a0a0a !important;">Create Account</h1>
+                <h1 style="color: #fbfbfb !important;">Create Account</h1>
                 <input name="username" type="text" placeholder="Username" style="margin:15px 7px 7px 7px" required />
                 <input name="name" type="text" placeholder="Name" style="margin-bottom: 7px" required />
                 <input name="password" type="password" placeholder="Password" style="margin-bottom: 7px" required />
@@ -61,7 +61,7 @@
         <div class="form-container sign-in-container">
             <form method="post" action="/webapp/loginregister/">
                 {% csrf_token %}
-                <h1>Login</h1>
+                <h1 style="color: #fbfbfb !important;">Login</h1>
                 <input name='username' type="text" placeholder="Username" style="margin:7px" required />
                 <input name='password' type="password" placeholder="Password" style="margin-bottom: 7px" required />
                 {% if message %}
@@ -86,7 +86,7 @@
                 <div class="overlay-panel overlay-right">
                     <h1>Welcome to ProHealth</h1>
                     {% comment %} <img src="{% static 'webapp/img/register-illustration.png' %}" style="height: 300 !important;width:300 !important;"> {% endcomment %}
-                    <button class="ghost" id="signUp" style="margin-top: 20px;">Sign Up</button>
+                    <button class="ghost" id="signUp" style="margin-top: 20px;color: #fbfbfb !important;">Sign Up</button>
                 </div>
             </div>
         </div>

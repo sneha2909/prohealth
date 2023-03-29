@@ -15,11 +15,11 @@ def index(request):
     context = {
         'user_activity': user_activity,
     }
-    return render(request, 'main/landing.html', context)
+    return render(request, 'workout_buddy/landing.html', context)
 
 @login_required
 def about(request):
-    return render(request, 'main/about.html')
+    return render(request, 'workout_buddy/about.html')
 
 
 @login_required
@@ -39,7 +39,7 @@ def friends(request):
         'friend_list_2': friend_list_2,
         'current_user': current_user,
     }
-    return render(request, 'main/friends.html', context)
+    return render(request, 'workout_buddy/friends.html', context)
 
 
 @login_required
@@ -50,7 +50,7 @@ def profile(request):
         'user': user,
         'workouts': workouts,
     }
-    return render(request, 'main/profile.html', context)
+    return render(request, 'workout_buddy/profile.html', context)
 
 
 @login_required
@@ -69,7 +69,7 @@ def profile_edit(request):
     else:
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'main/profile_edit.html', {
+    return render(request, 'workout_buddy/profile_edit.html', {
         'user_form': user_form,
         'profile_form': profile_form,
     })
@@ -87,7 +87,7 @@ def workout(request):
             print("Error!")
     else:
         form = WorkoutForm()
-    return render(request, 'main/workout.html', {
+    return render(request, 'workout_buddy/workout.html', {
         'form': form,
     })
 
