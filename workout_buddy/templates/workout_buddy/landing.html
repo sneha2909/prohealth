@@ -8,18 +8,24 @@
 {% block body %}
 {% block submenu %}
 <!-- Sidebar -->
-<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;">
-    <div class="position-sticky" style="background-color: #0a0a0a;">
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;margin-top: 13vh;">
+    <div class="position-sticky" style="background-color: #0a0a0a; margin-top: 0.5rem;">
         <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
+            <a href="{% url 'workout_buddy' %}" class="list-group-item list-group-item-action py-2 ripple"
+                aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+            </a><hr>
             <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
                 aria-current="true">
-                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Friends</span>
+                <i class="fa-solid fa-user-group fa-fw me-3"></i><span>Friends</span>
             </a>
-            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple active">
-                <i class="fas fa-chart-area fa-fw me-3"></i><span>Workout</span>
-            </a>
+            <hr>
+            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+                <i class="fa-sharp fa-solid fa-dumbbell fa-fw me-3"></i><span>Workout</span>
+            </a><hr>
             <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fas fa-lock fa-fw me-3"></i><span>Profile</span></a>
+                    class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span>
+            </a>
         </div>
     </div>
 </nav>
