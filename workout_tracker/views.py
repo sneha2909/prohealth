@@ -64,14 +64,15 @@ def new_workout(request):
                     for error in validated["errors"]:
                         messages.error(request, error, extra_tags='workout')
                     # Reload workout page:
-                    return redirect("/workout-tracker")
+                    return redirect("new-workout")
+
             except KeyError:
                 # If validation successful, load newly created workout page:
                 print("Workout passed validation and has been created.")
 
                 id = str(validated['workout'].id)
                 # Load workout:
-                return redirect('/workout-tracker/' + id)
+                return redirect('new-workout/' + id)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -93,7 +94,7 @@ def workout(request, id):
         }
 
         # If get request, load workout page with data:
-        return render(request, "workout_tracker/workout.html", data)
+        return render(request, "workout_trackernew-workout.html", data)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -145,7 +146,7 @@ def exercise(request, id):
             # Delete exercise by exercise id (from hidden field):
             Exercise.objects.get(id=request.GET["exercise_id"]).delete()
 
-            return redirect("/workout-tracker/" + id)
+            return redirect("new-workout/" + id)
 
         if request.method == "POST":
 
@@ -171,13 +172,13 @@ def exercise(request, id):
                         messages.error(request, error, extra_tags='exercise')
 
                     # Reload workout page:
-                    return redirect("/workout-tracker/" + id)
+                    return redirect("new-workout/" + id)
             except KeyError:
                 # If validation successful, load newly created workout page:
                 print("Exercise passed validation and has been created.")
 
                 # Reload workout:
-                return redirect('/workout-tracker/' + id)
+                return redirect('new-workout/' + id)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -222,13 +223,14 @@ def edit_workout(request, id):
                     for error in validated["errors"]:
                         messages.error(request, error, extra_tags='edit')
                     # Reload workout page:
-                    return redirect("/workout-tracker/" + str(data['workout'].id) + "/edit")
+                    return redirect("new-workout/" + str(data['workout'].id) + "/edit")
+
             except KeyError:
                 # If validation successful, load newly created workout page:
                 print("Edited workout passed validation and has been updated.")
 
                 # Load workout:
-                return redirect("/workout-tracker/" + str(data['workout'].id))
+                return redirect("new-workout/" + str(data['workout'].id))
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -264,7 +266,7 @@ def complete_workout(request, id):
         if request.method == "GET":
             # If get request, bring back to workout page.
             # Note, for now, GET request for this method not being utilized:
-            return redirect("/workout-tracker/" + id)
+            return redirect("new-workout/" + id)
 
         if request.method == "POST":
 
@@ -276,7 +278,7 @@ def complete_workout(request, id):
             print("Workout completed.")
 
             # Return to workout:
-            return redirect('/workout-tracker/' + id)
+            return redirect('new-workout/' + id)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:

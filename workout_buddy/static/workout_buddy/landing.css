@@ -11,9 +11,10 @@ body, html {
     color: #f1f1f1;
     width: 100%;
 }
-h1{
+h1,h2{
     text-align: center;
     margin: 4vh;
+    color: #FBFBFB;
 }
 .home-content {
     position: fixed;
@@ -76,10 +77,10 @@ button:focus {
     top: 0;
     bottom: 0;
     left: 0;
-    padding: 58px 0 0; /* Height of navbar */
+    /* padding: 58px 0 0; Height of navbar */
     box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.678), 0 2px 10px 0 rgba(255, 255, 255, 0.678);
     width: 240px;
-    z-index: 600;
+    /* z-index: 600; */
     background-color: #0a0a0a;
   }
   
@@ -91,7 +92,8 @@ button:focus {
   .sidebar .active {
     border-radius: 5px;
     box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.788), 0 2px 10px 0 rgba(255, 255, 255, 0.788);
-    background-color: #FF7009;
+    background-color: #FF7009 !important;
+    color:#0a0a0a ;
   }
   
   .sidebar-sticky {
@@ -110,8 +112,29 @@ button:focus {
   height: auto;
 
  }
- .navbar {
+ /* .navbar {
   margin-left: 16.7%;
   width:83.8%;
   
+} */
+.list-group-item{
+  background-color: #0a0a0a !important;
+  color: #fbfbfba8;
+}
+.sidebar a:hover{
+  color: #fbfbfb;
+}
+.sidebar a:focus{
+  color: #FF7009 ;
+}
+.sidebar a:active{
+  color: #FF7009 ;
+}
+.sidebar hr{
+  color: #fbfbfba8;
+  margin:0.1rem;
+}
+.card-body {
+  text-align: left;
+  display: block;
 }

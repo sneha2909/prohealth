@@ -1,55 +1,84 @@
-{% extends "webapp\base-temp.html" %} 
+{% extends "webapp/base-temp.html" %}
 <!-- webapp\templates\base-temp.html -->
-{% load static %} 
+{% load static %}
 {% block style %}
-<link rel="stylesheet" href="{% static 'workout_buddy/friend.css' %}" type=text/css>
+<link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}" type=text/css>
 {% endblock style %}
 
- {% block body %} 
- {% include "workout_buddy/navbar.html" %}
-<div class="jumbotron container-fluid">
-    {% if friend_list|length == 0 %}
-    <h2>There are no GymBuddies near you that like
-        <strong>{{ current_user.profile.activity1 }}</strong> :(</h2>
-    {% else %}
-    <h2>GymBuddies who like
-        <strong>{{ current_user.profile.activity1 }}</strong>
-    </h2>
-    {% endif %}
-    <div class="row" style="margin:auto;">
+{% block body %}
+<!-- {% include "workout_buddy/navbar.html" %} -->
+{% block submenu %}
+<!-- Sidebar -->
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;margin-top: 13vh;">
+    <div class="position-sticky" style="background-color: #0a0a0a;margin-top: 0.5rem;">
+        <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
+            <a href="{% url 'workout_buddy' %}" class="list-group-item list-group-item-action py-2 ripple"
+                aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+            </a>
+            <hr>
+            <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple active"
+                aria-current="true">
+                <i class="fa-solid fa-user-group fa-fw me-3"></i><span>Friends</span>
+            </a>
+            <hr>
+            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+                <i class="fa-sharp fa-solid fa-dumbbell fa-fw me-3"></i><span>Workout</span>
+            </a>
+            <hr>
+            <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span></a>
+        </div>
+    </div>
+</nav>
+<!-- Sidebar -->
+{% endblock submenu %}
+<main style="margin-top: 5vh;">
+    <div class="container pt-4">
+        {% if friend_list|length == 0 %}
+        <h2>There are no GymBuddies near you that like
+            <strong>{{ current_user.profile.activity1 }}</strong> :(
+        </h2>
+        {% else %}
+        <h2>GymBuddies who like
+            <strong>{{ current_user.profile.activity1 }}</strong>
+        </h2>
+        {% endif %}
         {% for friend in friend_list %}
-        <div class="card" style="margin:auto; margin-top:3vw; width:18rem;">
-            <!-- <img class="card-img-top" src="{{ friend.profile.image.url }}" alt="Card image cap"> -->
-            <div class="card-body">
-                <h5 class="card-title">{{friend.get_full_name}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">@{{ friend.username }}</h6>
-                <p class="card-text">{{ friend.profile.bio }}</p>
-                <a href="#" class="btn btn-primary">Message</a>
+        <div class="row" style="margin:auto;">
+            <div class="card" style="margin:auto; margin-top:3vw; width:18rem;">
+                <!-- <img class="card-img-top" src="{{ friend.profile.image.url }}" alt="Card image cap"> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{friend.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@{{ friend.username }}</h6>
+                    <!-- <p class="card-text">{{ friend.profile.bio }}</p> -->
+                    <a href="#" class="banner_btn">Message</a>
+                </div>
             </div>
         </div>
-    </div>
-    {% endfor %} {% if friend_list_2|length == 0 %}
-    <h2>There are no GymBuddies near you that like
-        <strong>{{ current_user.profile.activity2 }}</strong> :(</h2>
-    {% else %}
-    <h2>GymBuddies who like
-        <strong>{{ current_user.profile.activity2 }}</strong>
-    </h2>
-    {% endif %}
-    <div class="row" style="margin:auto;">
-        {% for friend in friend_list_2 %}
-        <div class="card" style="margin:auto; margin-top:3vw; width:18rem;">
-            <img class="card-img-top" src="{{ friend.profile.image.url }}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{friend.get_full_name}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">@{{ friend.username }}</h6>
-                <p class="card-text">{{ friend.profile.bio }}</p>
-                <a href="#" class="btn btn-primary">Message</a>
+        <!-- {% endfor %} {% if friend_list_2|length == 0 %}
+        <h2>There are no GymBuddies near you that like
+            <strong>{{ current_user.profile.activity2 }}</strong> :(
+        </h2>
+        {% else %}
+        <h2>GymBuddies who like
+            <strong>{{ current_user.profile.activity2 }}</strong>
+        </h2>
+        {% endif %}
+        <div class="row" style="margin:auto;">
+            {% for friend in friend_list_2 %}
+            <div class="card" style="margin:auto; margin-top:3vw; width:18rem;">
+                <img class="card-img-top" src="{{ friend.profile.image.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{friend.get_full_name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@{{ friend.username }}</h6>
+                    <p class="card-text">{{ friend.profile.bio }}</p>
+                    <a href="#" class="btn btn-primary">Message</a>
+                </div>
             </div>
         </div>
-    </div>
-    {% endfor %}
-    <!-- <div class="container">
+        {% endfor %} -->
+        <!-- <div class="container">
         <div class="card" style="margin: 2%;">
             <div class="row" style="margin: 2%;">
                 <div class="col-md-2">
@@ -69,7 +98,9 @@
                 </div>
             </div>
         </div>
-    </div> -->
+        </div> -->
 
-</div>
-{% endblock body %}
+    </div>
+</main>
+
+{% endblock body%}
