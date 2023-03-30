@@ -1,36 +1,65 @@
-{% extends "webapp/base.html" %} 
+{% extends "webapp/base-temp.html" %}
+<!-- webapp\templates\base-temp.html -->
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}" type=text/css>
+{% endblock style %}
 
-{% load static %} 
-{% block body %} 
-{% include "workout_buddy/navbar.html" %}
-<div class="jumbotron">
-    <div class="main-jumbo">
-        <h2>Edit Profile</h2>
-        <br>
-        <form method="POST" action="/profile_edit/" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="col-md-12">
-                {% for field in user_form %}
-                <p>
-                    {{ field.help_text }}
-                    <br> {{ field }} {% endfor %}
-                </p>
-                {% for field in profile_form %}
-                <p>
-                    {% if field == profile_form.image %}
-                    Profile Picture:
-                    <br>
-                    {{ profile_form.image }}
-                    {% else %}
-                    {{ field.help_text }}
-                    <br> {{ field }} 
-                    {% endif %}
-                    {% endfor %}
-                </p>
-            </div>
-            <button type="submit">Save
-            </button>
-        </form>
+{% block body %}
+<!-- {% include "workout_buddy/navbar.html" %} -->
+{% block submenu %}
+<!-- Sidebar -->
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;margin-top: 13vh;">
+    <div class="position-sticky" style="background-color: #0a0a0a;margin-top: 0.5rem;">
+        <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
+            <a href="{% url 'workout_buddy' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+            </a><hr>
+            <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
+                aria-current="true">
+                <i class="fa-solid fa-user-group fa-fw me-3"></i><span>Friends</span>
+            </a><hr>
+            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+                <i class="fa-sharp fa-solid fa-dumbbell fa-fw me-3"></i><span>Workout</span>
+            </a><hr>
+            <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span></a>
+        </div>
     </div>
-</div>
+</nav>
+<!-- Sidebar -->
+{% endblock submenu %}
+<main style="margin-top: 5vh;">
+    <div class="jumbotron">
+        <div class="main-jumbo">
+            <h2>Edit Profile</h2>
+            <br>
+            <form method="POST" action="/profile_edit/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-md-12">
+                    {% for field in user_form %}
+                    <p>
+                        {{ field.help_text }}
+                        <br> {{ field }} {% endfor %}
+                    </p>
+                    {% for field in profile_form %}
+                    <p>
+                        {% if field == profile_form.image %}
+                        Profile Picture:
+                        <br>
+                        {{ profile_form.image }}
+                        {% else %}
+                        {{ field.help_text }}
+                        <br> {{ field }} 
+                        {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+                <button type="submit">Save
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
 {% endblock body%}

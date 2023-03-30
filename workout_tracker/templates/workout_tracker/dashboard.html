@@ -47,7 +47,7 @@
             </div>
             <div class="container-fluid d-flex align-items-center justify-content-between ">
                 <div class="navbar-header">
-                    <a href="/dashboard" class="navbar-brand">
+                    <a href="{% url 'workout-tracker' %}" class="navbar-brand">
                         <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Fitness</strong><strong>Tracker</strong></div>
                         <div class="brand-text brand-sm"><strong class="text-primary">F</strong><strong>T</strong></div>
                     </a>
@@ -71,9 +71,9 @@
                 </div>
             </div><span class="heading">Menu</span>
             <ul class="list-unstyled">
-                <li class="active"><a href="/dashboard"><i class="icon-home"></i>Home</a></li>
-                <li><a href="/workout"><i class="fa fa-plus-square"></i>Workout</a></li>
-                <li><a href="/workouts"><i class="fa fa-th-list"></i>View All </a></li>
+                <li class="active"><a href="{% url 'workout-tracker' %}"><i class="icon-home"></i>Home</a></li>
+                <li><a href="{% url 'new-workout' %}"><i class="fa fa-plus-square"></i>Workout</a></li>
+                <li><a href="{% url 'all-workout' %}"><i class="fa fa-th-list"></i>View All </a></li>
             </ul>
         </nav>
         <div class="page-content mb-5">
@@ -96,7 +96,7 @@
                                       <h6 class="card-subtitle mb-2 text-muted">{{workout.created_at | date }}</h6>
                                       <p class="card-text">{{workout.description}}
                                       </p>
-                                      <a href="/workout/{{workout.id}}" class="card-link">View</a>
+                                      <a href="{% url 'new-workout' %}/{{workout.id}}" class="card-link">View</a>
                                       <p class="card-text">
                                         <small class="text-muted">Updated {{workout.updated_at | timesince}} ago</small>
                                       </p>
@@ -104,7 +104,7 @@
                               </div>
                         </div>
                         {% endfor %}
-                        <p class="text-white text-muted ml-3 mr-3 block"><i class="fa fa-info-circle"></i> <em>Most recent 4 workouts displayed only. <a href="/workouts" class="card-link">View All</a></em></p>
+                        <p class="text-white text-muted ml-3 mr-3 block"><i class="fa fa-info-circle"></i> <em>Most recent 4 workouts displayed only. <a href="{% url 'all-workout' %}" class="card-link">View All</a></em></p>
                         {% else %}
                         <div class="col-lg-12 pb-4">
                           <div class="card text-white bg-dark mb-4">
@@ -113,7 +113,7 @@
                                   <h6 class="card-subtitle mb-2 text-muted">There's no time like the present! 💪</h6>
                                   <p class="card-text">{{workout.description}}
                                   </p>
-                                  <a href="/workout" class="card-link">Start a Workout</a>
+                                  <a href="{% url 'new-workout' %}" class="card-link">Start a Workout</a>
                               </div>
                           </div>
                         </div>

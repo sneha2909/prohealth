@@ -1,52 +1,82 @@
-{% extends "webapp/base-temp.html" %}  
-{% load static %} 
+{% extends "webapp/base-temp.html" %}
+<!-- webapp\templates\base-temp.html -->
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}" type=text/css>
+{% endblock style %}
+
 {% block body %}
-{% include "workout_buddy/navbar.html" %}
-<div class="jumbotron">
-    <div class="main-jumbo">
-        <div class="row">
-            <div class="col-md-4">
-                {% if user.profile.image %}
-                <img class="img-responsive" src="{{ user.profile.image.url }}" width="100%"> {% else %}
-                <img class="img-responsive" src="{% static 'workout_buddy/default.png' %}" width="100%"> {% endif %}
-                <div class="main-info">
-                    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
-                    <p>@{{user.username}}</p>
-                    <p>Favorite Gym Activity:
-                        <strong>{{ user.profile.activity1 }}</strong>
-                    </p>
-                    {% if user.profile.activity2 %}
-                    <p>Second Favorite Activity:
-                        <strong>{{ user.profile.activity2 }}</strong>
-                    </p>
-                    {% endif %}
-                    <p>{{ user.profile.bio }}</p>
-                    <a class="btn btn-gymbuddy" style="width: 100%;" href="{% url 'profile_edit' %}">Edit Profile</a>
-                </div>
-                <hr>
-                <div class="main-info">
-                    <p>
-                        <i class="fas fa-map-marker-alt"></i> {{ user.profile.location }}</p>
-                    <a href="{{ user.profile.website }}" target="_blank">{{ user.profile.website }}</a>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="body-info" style="margin-left: 5%;">
-                    <div class="row">
-                        <h3>Workout Log</h3>
-                        <a class="btn btn-outline-success my-2 my-sm-0" href="/workout/" style="margin-left: auto;">Add Workout</a>
+<!-- {% include "workout_buddy/navbar.html" %} -->
+{% block submenu %}
+<!-- Sidebar -->
+<nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;margin-top: 13vh;">
+    <div class="position-sticky" style="background-color: #0a0a0a;margin-top: 0.5rem;">
+        <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
+            <a href="{% url 'workout_buddy' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+            </a><hr>
+            <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
+                aria-current="true">
+                <i class="fa-solid fa-user-group fa-fw me-3"></i><span>Friends</span>
+            </a><hr>
+            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+                <i class="fa-sharp fa-solid fa-dumbbell fa-fw me-3"></i><span>Workout</span>
+            </a><hr>
+            <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple active"><i
+                    class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span></a>
+        </div>
+    </div>
+</nav>
+<!-- Sidebar -->
+{% endblock submenu %}
+<main style="margin-top: 5vh;">
+    <div class="jumbotron">
+        <div class="main-jumbo">
+            <div class="row">
+                <div class="col-md-4">
+                    {% if user.profile.image %}
+                    <img class="img-responsive" src="{{ user.profile.image.url }}" width="100%"> {% else %}
+                    <img class="img-responsive" src="{% static 'workout_buddy/default.png' %}" width="100%"> {% endif %}
+                    <div class="main-info">
+                        <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                        <p>@{{user.username}}</p>
+                        <p>Favorite Gym Activity:
+                            <strong>{{ user.profile.activity1 }}</strong>
+                        </p>
+                        {% if user.profile.activity2 %}
+                        <p>Second Favorite Activity:
+                            <strong>{{ user.profile.activity2 }}</strong>
+                        </p>
+                        {% endif %}
+                        <p>{{ user.profile.bio }}</p>
+                        <a class="btn btn-gymbuddy" style="width: 100%;" href="{% url 'profile_edit' %}">Edit Profile</a>
                     </div>
                     <hr>
-                    <ul class="list-group">
-                        {% for wkt in workouts %}
-                        <li class="list-group-item"><strong>{{user.first_name}} trained {{wkt.what}} at {{wkt.gym}} at {{wkt.time}}</strong></li>
+                    <div class="main-info">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> {{ user.profile.location }}</p>
+                        <a href="{{ user.profile.website }}" target="_blank">{{ user.profile.website }}</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="body-info" style="margin-left: 5%;">
+                        <div class="row">
+                            <h3>Workout Log</h3>
+                            <a class="btn btn-outline-success my-2 my-sm-0" href="/workout/" style="margin-left: auto;">Add Workout</a>
+                        </div>
                         <hr>
-                        {% endfor %}
-                    </ul>
+                        <ul class="list-group">
+                            {% for wkt in workouts %}
+                            <li class="list-group-item"><strong>{{user.first_name}} trained {{wkt.what}} at {{wkt.gym}} at {{wkt.time}}</strong></li>
+                            <hr>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-{% endblock %}
+    </div>
+</main>
+
+{% endblock body%}
