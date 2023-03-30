@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}"> -->
 <!-- Bootstrap CSS-->
-<link rel="stylesheet" href="{% static 'workout_tracker/css/bootstrap.min.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'workout_tracker/css/bootstrap.min.css' %}"> -->
 <!-- Font Awesome CSS-->
-<link rel="stylesheet" href="{% static 'workout_tracker/css/font-awesome.min.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'workout_tracker/css/font-awesome.min.css' %}"> -->
 <!-- Custom Font Icons CSS-->
 <link rel="stylesheet" href="{% static 'workout_tracker/css/font.css' %}">
 <!-- Google fonts - Muli-->
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="{% static 'workout_tracker/css/style.red.css' %}" id="theme-stylesheet">
 <!-- Custom stylesheet - for your changes-->
 <link rel="stylesheet" href="{% static 'workout_tracker/css/custom.css' %}">
+
+<style>
+    .nav-link > a{
+        text-decoration: none !important;
+    }
+</style>
 {% endblock style %}
 
 {% block body %}
@@ -65,7 +71,7 @@
                     <li><a href="{% url 'all-workout' %}"><i class="fa fa-th-list"></i>View All </a></li>
                 </ul>
             </nav>
-            <div class="page-content mb-5">
+            <div class="page-content">
                 <div class="page-header">
                     <div class="container-fluid">
                         <h2 class="h5 no-margin-bottom">Dashboard</h2>

@@ -13,6 +13,6 @@ urlpatterns = [
     path('workout/complete(?P<id>\d*)/', views.complete_workout,name='complete-workout'), # complete workout
     path('workout/edit(?P<id>\d*)/', views.edit_workout,name='edit-workout'), # edit workout
     path('workout/delete(?P<id>\d*)/', views.delete_workout,name='delete-workout'), # delete workout
-    path('workouts/', views.all_workouts,name='all-workout'), # get all workouts
-    path('legal/tos/', views.tos,name='tos'), # get terms of service
+    path('workouts/', views.all_workouts,name='all-workout') # get all workouts
+    
 ]

@@ -26,15 +26,15 @@ def dashboard(request):
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
+        return redirect("workout-tracker")
 
 def new_workout(request):
     """If GET, load new workout; if POST, submit new workout."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
-
+        user = User.objects.get(id = request.user.id)
+        print(user)
         # Gather any page data:
         data = {
             'user': user,
@@ -70,19 +70,19 @@ def new_workout(request):
 
                 id = str(validated['workout'].id)
                 # Load workout:
-                return redirect('new-workout/' + id)
+                return redirect('new-workout' + '/'+id)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
+        return redirect("workout-tracker")
 
 def workout(request, id):
     """View workout."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id = request.user.id)
 
         # Gather any page data:
         data = {
@@ -92,19 +92,19 @@ def workout(request, id):
         }
 
         # If get request, load workout page with data:
-        return render(request, "workout_trackernew-workout.html", data)
+        return render(request, "workout_tracker/new-workout.html", data)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
+        return redirect("workout-tracker")
 
 def all_workouts(request):
     """Loads `View All` Workouts page."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id = request.user.id)
 
         workout_list = Workout.objects.filter(user__id=user.id).order_by('-id')
 
@@ -130,14 +130,14 @@ def all_workouts(request):
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
+        return redirect("workout-tracker")
 
 def exercise(request, id):
     """If POST, submit new exercise, if GET delete exercise."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id = request.user.id)
 
         if request.method == "GET":
 
@@ -181,14 +181,14 @@ def exercise(request, id):
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
+        return redirect("workout-tracker")
 
 def edit_workout(request, id):
     """If GET, load edit workout; if POST, update workout."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id = request.user.id)
 
         # Gather any page data:
         data = {
@@ -232,33 +232,33 @@ def edit_workout(request, id):
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
+        return redirect("workout-tracker")
 
 def delete_workout(request, id):
     """Delete a workout."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id = request.user.id)
 
         # Delete workout:
         Workout.objects.get(id=id).delete()
 
         # Load dashboard:
-        return redirect('/dashboard')
+        return redirect('workout-tracker')
 
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
+        return redirect("workout-tracker")
 
 def complete_workout(request, id):
     """If POST, complete a workout."""
 
     try:
         # Check for valid session:
-        user = User.objects.get(id=request.session["user_id"])
+        user = User.objects.get(id = request.user.id)
 
         if request.method == "GET":
             # If get request, bring back to workout page.
@@ -280,9 +280,4 @@ def complete_workout(request, id):
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
-        return redirect("/")
-
-def tos(request):
-    """GET terms of service / user agreement."""
-
-    return render(request, "workout/legal/tos.html")
+        return redirect("workout-tracker")

@@ -143,7 +143,7 @@ input {
 }
 
 .page-content {
-  background: #22252a;
+  background: #0a0a0a;
   min-height: 100vh;
   width: calc(100% - 280px);
   padding: 0;
@@ -639,7 +639,7 @@ nav.navbar .dropdown .dropdown-menu.active {
 */
 nav#sidebar {
   width: 280px;
-  background: #2d3035;
+  background: #0a0a0a;
   color: #6a6c70;
   border-right: 1px solid #34373d;
 }
@@ -2019,13 +2019,13 @@ STYLE SWITCHER FOR DEMO
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #ff1919;
+  background-color: rgb(255, 112, 9);
   border-color: #ff0c0c;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  -webkit-box-shadow: 0 0 0 3px rgba(255, 63, 63, 0.5);
-  box-shadow: 0 0 0 3px rgba(255, 63, 63, 0.5);
+  -webkit-box-shadow: 0 0 0 3px rgba(255, 112, 9, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 112, 9, 0.5);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
@@ -2035,7 +2035,7 @@ STYLE SWITCHER FOR DEMO
 
 .btn-primary:active, .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
-  background-color: #ff1919;
+  background-color: #ff7009;
   background-image: none;
   border-color: #ff0c0c;
 }
