@@ -64,7 +64,7 @@ def new_workout(request):
                     for error in validated["errors"]:
                         messages.error(request, error, extra_tags='workout')
                     # Reload workout page:
-                    return redirect("/workout")
+                    return redirect("/workout-tracker")
             except KeyError:
                 # If validation successful, load newly created workout page:
                 print("Workout passed validation and has been created.")
