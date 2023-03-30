@@ -47,7 +47,7 @@
             </div>
             <div class="container-fluid d-flex align-items-center justify-content-between ">
                 <div class="navbar-header">
-                    <a href="/dashboard" class="navbar-brand">
+                    <a href="{% url 'workout-tracker'  %}" class="navbar-brand">
                         <div class="brand-text brand-big visible text-uppercase"><strong
                                 class="text-primary">Fitness</strong><strong>Tracker</strong></div>
                         <div class="brand-text brand-sm"><strong class="text-primary">F</strong><strong>T</strong></div>
@@ -74,7 +74,7 @@
                 </div>
             </div><span class="heading">Menu</span>
             <ul class="list-unstyled">
-                <li class=""><a href="/dashboard"><i class="icon-home"></i>Home</a></li>
+                <li class=""><a href="{% url 'workout-tracker'  %}"><i class="icon-home"></i>Home</a></li>
                 <li><a href="{% url 'new-workout' %}"><i class="fa fa-plus-square"></i>Workout</a></li>
                 <li class="active"><a href="{% url 'all-workout' %}"><i class="fa fa-th-list"></i>View All </a></li>
             </ul>
@@ -107,7 +107,7 @@
                                         <td scope="row">{{workout.created_at | date}}</td>
                                         <td><em>{{workout.name}}</em></td>
                                         <td>
-                                            <form action="/workout/{{workout.id}}">
+                                            <form action="{% url 'new-workout' {{workout.id}} %}">
                                                 <button class="btn btn-link btn-sm view-link" type="submit"><i
                                                         class="fa fa-eye"></i> View</button>
                                             </form>
