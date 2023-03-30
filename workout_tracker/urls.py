@@ -9,7 +9,7 @@ urlpatterns = [
     # url(r'^user/logout$', views.logout), # destroys user session
     # url(r'^$', views.dashboard),
     path('', views.dashboard, name='workout-tracker'),# get dashboard
-    url(r'^workout$', views.new_workout), # get workout page / add workout
+    url(r'^workout$', views.new_workout),# get workout page / add workout
     url(r'^workout/(?P<id>\d*)$', views.workout), # get workout / update workout
     url(r'^workout/(?P<id>\d*)/exercise$', views.exercise), # add exercise
     url(r'^workout/(?P<id>\d*)/complete$', views.complete_workout), # complete workout
