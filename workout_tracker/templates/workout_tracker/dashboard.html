@@ -11,7 +11,7 @@
     <!-- Load Access to Django Static Files -->
     {% load static %}
     <!-- Fav Icon -->
-    <!--[if IE]><link rel="shortcut icon" href="{% static 'workout_tracker/images/fav.png' }"><![endif]-->
+    <!--[if IE]><link rel="shortcut icon" href="{% static 'workout/images/fav.png' }"><![endif]-->
     <link rel="icon" href="{% static 'workout_tracker/images/fav.png' %}">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{% static 'workout_tracker/css/bootstrap.min.css' %}">
@@ -113,7 +113,7 @@
                                   <h6 class="card-subtitle mb-2 text-muted">There's no time like the present! 💪</h6>
                                   <p class="card-text">{{workout_tracker.description}}
                                   </p>
-                                  <a href="/workout_tracker" class="card-link">Start a workout_tracker</a>
+                                  <a href="{%  url 'new-workout' %}" class="card-link">Start a workout</a>
                               </div>
                           </div>
                         </div>
