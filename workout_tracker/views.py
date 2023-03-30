@@ -64,7 +64,7 @@ def new_workout(request):
                     for error in validated["errors"]:
                         messages.error(request, error, extra_tags='workout')
                     # Reload workout page:
-                    return redirect("new-workout")
+                    return redirect("/workout-tracker/")
 
             except KeyError:
                 # If validation successful, load newly created workout page:
@@ -72,7 +72,7 @@ def new_workout(request):
 
                 id = str(validated['workout'].id)
                 # Load workout:
-                return redirect('new-workout/' + id)
+                return redirect('/workout-tracker/')
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -94,7 +94,7 @@ def workout(request, id):
         }
 
         # If get request, load workout page with data:
-        return render(request, "workout_trackernew-workout.html", data)
+        return render(request, "workout_tracker/new-workout.html", data)
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
