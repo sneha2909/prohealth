@@ -71,15 +71,9 @@
                 </div>
             </div><span class="heading">Menu</span>
             <ul class="list-unstyled">
-<<<<<<< HEAD
-                <li class="active"><a href="/dashboard"><i class="icon-home"></i>Home</a></li>
-                <li><a href="/workout_tracker"><i class="fa fa-plus-square"></i>Add workout</a></li>
-                <li><a href="/workout_trackers"><i class="fa fa-th-list"></i>View All </a></li>
-=======
                 <li class="active"><a href="{% url 'workout-tracker' %}"><i class="icon-home"></i>Home</a></li>
                 <li><a href="{% url 'new-workout' %}"><i class="fa fa-plus-square"></i>Workout</a></li>
                 <li><a href="{% url 'all-workout' %}"><i class="fa fa-th-list"></i>View All </a></li>
->>>>>>> 1c16e39b9762bc091188dac2e7c416741de08355
             </ul>
         </nav>
         <div class="page-content mb-5">
@@ -102,11 +96,7 @@
                                       <h6 class="card-subtitle mb-2 text-muted">{{workout_tracker.created_at | date }}</h6>
                                       <p class="card-text">{{workout_tracker.description}}
                                       </p>
-<<<<<<< HEAD
-                                      <a href="/workout_tracker/{{workout_tracker.id}}" class="card-link">View</a>
-=======
                                       <a href="{% url 'new-workout' %}/{{workout.id}}" class="card-link">View</a>
->>>>>>> 1c16e39b9762bc091188dac2e7c416741de08355
                                       <p class="card-text">
                                         <small class="text-muted">Updated {{workout_tracker.updated_at | timesince}} ago</small>
                                       </p>
@@ -114,11 +104,7 @@
                               </div>
                         </div>
                         {% endfor %}
-<<<<<<< HEAD
-                        <p class="text-white text-muted ml-3 mr-3 block"><i class="fa fa-info-circle"></i> <em>Most recent 4 workout_trackers displayed only. <a href="/workout_trackers" class="card-link">View All</a></em></p>
-=======
                         <p class="text-white text-muted ml-3 mr-3 block"><i class="fa fa-info-circle"></i> <em>Most recent 4 workouts displayed only. <a href="{% url 'all-workout' %}" class="card-link">View All</a></em></p>
->>>>>>> 1c16e39b9762bc091188dac2e7c416741de08355
                         {% else %}
                         <div class="col-lg-12 pb-4">
                           <div class="card text-white bg-dark mb-4">
@@ -127,11 +113,7 @@
                                   <h6 class="card-subtitle mb-2 text-muted">There's no time like the present! 💪</h6>
                                   <p class="card-text">{{workout_tracker.description}}
                                   </p>
-<<<<<<< HEAD
-                                  <a href="{%  url 'new-workout' %}" class="card-link">Start a workout</a>
-=======
                                   <a href="{% url 'new-workout' %}" class="card-link">Start a Workout</a>
->>>>>>> 1c16e39b9762bc091188dac2e7c416741de08355
                               </div>
                           </div>
                         </div>
