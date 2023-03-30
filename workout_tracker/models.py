@@ -2,6 +2,7 @@ from django.db import models
 import re # regex for email validation
 import bcrypt # bcrypt for password encryption/decryption
 from decimal import * # for decimal number purposes
+from webapp.models import User
 class WorkoutManager(models.Manager):
     """Additional instance method functions for `Workout`"""
 
@@ -220,17 +221,17 @@ class ExerciseManager(models.Manager):
             }
             return errors
 
-class User(models.Model):
-    """Creates instances of `User`."""
+# class User(models.Model):
+#     """Creates instances of `User`."""
 
-    username = models.CharField(max_length=20)
-    email = models.CharField(max_length=50)
-    password = models.CharField(max_length=22)
-    tos_accept = models.BooleanField(default=False)
-    level = models.IntegerField(default=1)
-    level_name = models.CharField(max_length=15, default="Newbie")
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+#     username = models.CharField(max_length=20)
+#     email = models.CharField(max_length=50)
+#     password = models.CharField(max_length=22)
+#     tos_accept = models.BooleanField(default=False)
+#     level = models.IntegerField(default=1)
+#     level_name = models.CharField(max_length=15, default="Newbie")
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
     # objects = UserManager() # Adds additional instance methods to `User`
 
 class Workout(models.Model):

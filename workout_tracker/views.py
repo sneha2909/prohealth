@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages # access django's `messages` module.
 from .models import Workout, Exercise
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from webapp.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def dashboard(request):
     """Loads dashboard."""
 
     try:
         # Check for valid session:
+
         user = User.objects.get(id = request.user.id)
 
         # Get recent workouts for logged in user:
@@ -33,8 +34,8 @@ def new_workout(request):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id = request.user.id)
-        print(user)
+        user = User.objects.get(id=request.user.id)
+
         # Gather any page data:
         data = {
             'user': user,
@@ -63,14 +64,15 @@ def new_workout(request):
                     for error in validated["errors"]:
                         messages.error(request, error, extra_tags='workout')
                     # Reload workout page:
-                    return redirect("new-workout")
+                    return redirect("/workout-tracker/")
+
             except KeyError:
                 # If validation successful, load newly created workout page:
                 print("Workout passed validation and has been created.")
 
                 id = str(validated['workout'].id)
                 # Load workout:
-                return redirect('new-workout' + '/'+id)
+                return redirect('/workout-tracker/')
 
     except (KeyError, User.DoesNotExist) as err:
         # If existing session not found:
@@ -82,7 +84,7 @@ def workout(request, id):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id = request.user.id)
+        user = User.objects.get(id=request.user.id)
 
         # Gather any page data:
         data = {
@@ -104,7 +106,7 @@ def all_workouts(request):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id = request.user.id)
+        user = User.objects.get(id=request.user.id)
 
         workout_list = Workout.objects.filter(user__id=user.id).order_by('-id')
 
@@ -137,7 +139,7 @@ def exercise(request, id):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id = request.user.id)
+        user = User.objects.get(id=request.user.id)
 
         if request.method == "GET":
 
@@ -188,7 +190,7 @@ def edit_workout(request, id):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id = request.user.id)
+        user = User.objects.get(id=request.user.id)
 
         # Gather any page data:
         data = {
@@ -222,6 +224,7 @@ def edit_workout(request, id):
                         messages.error(request, error, extra_tags='edit')
                     # Reload workout page:
                     return redirect("new-workout/" + str(data['workout'].id) + "/edit")
+
             except KeyError:
                 # If validation successful, load newly created workout page:
                 print("Edited workout passed validation and has been updated.")
@@ -239,7 +242,7 @@ def delete_workout(request, id):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id = request.user.id)
+        user = User.objects.get(id=request.user.id)
 
         # Delete workout:
         Workout.objects.get(id=id).delete()
@@ -258,7 +261,7 @@ def complete_workout(request, id):
 
     try:
         # Check for valid session:
-        user = User.objects.get(id = request.user.id)
+        user = User.objects.get(id=request.user.id)
 
         if request.method == "GET":
             # If get request, bring back to workout page.
@@ -281,3 +284,5 @@ def complete_workout(request, id):
         # If existing session not found:
         messages.info(request, "You must be logged in to view this page.", extra_tags="invalid_session")
         return redirect("workout-tracker")
+
+    return render(request, "workout-tracker/legal/tos.html")
