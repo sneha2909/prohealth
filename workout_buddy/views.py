@@ -7,6 +7,7 @@ from.models import Workout
 from webapp.models import User
 from webapp.views import loginregister, login_required
 from fuzzywuzzy import fuzz
+from django.core.mail import send_mail
 
 
 @login_required
@@ -91,3 +92,11 @@ def workout(request):
         'form': form,
     })
 
+def message(request):
+    send_mail(
+        'Connection Request',
+        'Let us connect and start working out together!',
+        request.user.email,
+        ['to@example.com'],
+        fail_silently=False,
+    )
