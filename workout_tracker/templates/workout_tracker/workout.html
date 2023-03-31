@@ -152,7 +152,7 @@
 
                       {% if workout.completed == False %}
                       <td>
-                        <form id="delete-exercise-form" action="{% url 'add-exercise' {{workout.id}} %}" method="GET" class="p-0">
+                        <form id="delete-exercise-form" action="" method="GET" class="p-0">
                           {% csrf_token %}
                           <input type="hidden" id="exercise_id" name="exercise_id" value="{{ exercise.id }}">
                           <input type="hidden" id="workout_id" name="workout_id" value="{{ workout.id }}">
