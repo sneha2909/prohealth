@@ -121,6 +121,55 @@
                     </div>
                 </section>
             </div>
+<<<<<<< HEAD
+=======
+            <section class="no-padding-bottom">
+                <div class="container-fluid mb-4">
+                    <div class="row">
+                      <!-- Perform django if check here for recent_workout_trackers-->
+                      {% if recent_workout_trackers %}
+                        <!-- If so, repeat cards here: -->
+                        {% for workout_tracker in recent_workout_trackers %}
+                        <div class="col-lg-12 pb-4">
+                              <div class="card text-white bg-dark mb-2">
+                                  <div class="card-body">
+                                      <h4 class="card-title">{{workout_tracker.name}}</h4>
+                                      <h6 class="card-subtitle mb-2 text-muted">{{workout_tracker.created_at | date }}</h6>
+                                      <p class="card-text">{{workout_tracker.description}}
+                                      </p>
+                                      <a href="{% url 'new-workout' %}/{{workout.id}}" class="card-link">View</a>
+                                      <p class="card-text">
+                                        <small class="text-muted">Updated {{workout_tracker.updated_at | timesince}} ago</small>
+                                      </p>
+                                  </div>
+                              </div>
+                        </div>
+                        {% endfor %}
+                        <p class="text-white text-muted ml-3 mr-3 block"><i class="fa fa-info-circle"></i> <em>Most recent 4 workouts displayed only. <a href="{% url 'all-workout' %}" class="card-link">View All</a></em></p>
+                        {% else %}
+                        <div class="col-lg-12 pb-4">
+                          <div class="card text-white bg-dark mb-4">
+                              <div class="card-body">
+                                  <h4 class="card-title">You don't have any workout_trackers yet.</h4>
+                                  <h6 class="card-subtitle mb-2 text-muted">There's no time like the present! 💪</h6>
+                                  <p class="card-text">{{workout_tracker.description}}
+                                  </p>
+                                  <a href="{% url 'new-workout' %}" class="card-link">Start a Workout</a>
+                              </div>
+                          </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+            <footer class="footer fixed-bottom no-margin-bottom">
+                <div class="footer__block block no-margin-bottom">
+                    <div class="container-fluid text-center">
+                        <p class="no-margin-bottom">2021 &copy; <a href="https://timknab.dev" target="_blank" class="sasquatch-footer-link">timknab.dev</a></p>
+                    </div>
+                </div>
+            </footer>
+>>>>>>> c3b544e4f9d78ecbfe18714ce77f117d33c255e7
         </div>
 
 </main>

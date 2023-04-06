@@ -11,6 +11,9 @@ class User(AbstractUser):
     phone_number=models.CharField(max_length=10,blank=True, null=True)
     gender=models.CharField(max_length=20, null=True)
     email = models.EmailField()
+    # location
+    # favorite gym acitivity 1
+    # favorite gym acitivity 2
     # slug = AutoSlugField(populate_from='name')
     # USERNAME_FIELD = 'username'
     # REQUIRED_FIELDS = []
