@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Gym, Profile, Workout
+from .models import Gym, Workout
 # from django.contrib.auth.admin import UserAdmin
 # from django.contrib.auth.models import User
 

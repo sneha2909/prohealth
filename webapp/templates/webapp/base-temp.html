@@ -42,7 +42,7 @@
   <header class="header-area">
     {% block submenu %}
     {% endblock submenu %}
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #0a0a0a;" id="main navbar">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #0a0a0a;box-shadow: 0.5px 1px 10px #888888;" id="main navbar">
       <div class="container-fluid mx-5" >
         <a class="navbar-brand" href="{% url 'home' %}">
           <!-- <img src="{% static 'webapp/img/logo.png'%}"> -->
@@ -132,7 +132,7 @@
     crossorigin="anonymous"></script>
 
 
-  <!-- <script>
+  <script>
     const body = document.querySelector("body");
     const navbar = document.querySelector(".navbar1");
     const menuBtn = document.querySelector(".menu-btn");
@@ -152,7 +152,7 @@
     }
 
 
-  </script> -->
+  </script>
 
 
   <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
