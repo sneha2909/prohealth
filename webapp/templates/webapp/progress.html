@@ -1,0 +1,207 @@
+{% extends 'base-dashboard.html' %}
+{% block title%} Progress {% endblock %}
+{% block progressactive %} active {% endblock progressactive %}
+{% load static %}
+{% block content %}
+{% block scripts %}
+<section id="progress-page" class="progress-page">
+  <h2 class="title-heading">Your Progress</h2>
+  <div class="container mt-5 mb-4">
+    <div class="row">
+      <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card p-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-auto">
+                <div class="counter-icon ms-auto"> 
+                  <i class="fa-solid fa-fire text-center text-white"></i>
+                </div>
+              </div>
+              <div class="col ms-auto">
+                <h6>Calories Burn</h6>
+                <h3>{{calories_burnt}} cals</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card p-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col col-auto">
+                <div class="counter-icon ms-auto"> 
+                  <i class="fa-solid fa-clock text-center text-white"></i>
+                </div>
+              </div>
+              <div class="col ms-auto">
+                <h6>Time Taken</h6>
+                <h3>{{exercise_duration}} mins</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="container mt-1 mb-4">
+    <div class="row gy-5">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Daily Calories Burned vs Days</h5>
+            <canvas id="lineChart" style="max-height: 400px;"></canvas>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.querySelector('#lineChart'), {
+                  type: 'line',
+                  data: {
+                    labels: [{% for item in x_axis %}"{{ item }}", {% endfor %}],
+                datasets: [{
+                  label: 'Daily Calories Burned',
+                  data: [{% for item in y_axis %}{{ item }}, {% endfor %}],
+                fill: true,
+                borderColor: 'rgb(0, 87,255 )',
+                backgroundColor: 'rgba(0, 87, 255, 0.2)',
+                pointStyle: 'circle',
+                pointRadius: 10,
+                pointHoverRadius: 15,
+                tension: 0.1
+                    }]
+                  },
+                options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: 'Date'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
+                      }
+                    }
+                  },
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'Calories'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
+                      }
+                    }
+                  }
+                }
+              }
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Weight Loss vs Days</h5>
+            <canvas id="lineChart1" style="max-height: 400px;"></canvas>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.querySelector('#lineChart1'), {
+                  type: 'line',
+                  data: {
+                    labels: [{% for item in x_axis %}"{{ item }}", {% endfor %}],
+                datasets: [{
+                  label: 'Weight Loss',
+                  data: [{% for item in y1_axis %}{{ item }}, {% endfor %}],
+                borderColor: 'rgb(0, 87,255 )',
+                tension: 0.1
+                    }]
+                  },
+                options: {
+                responsive: true,
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: 'Date'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
+                      }
+                    }
+                  },
+                  y: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'Weight in grams'
+                    },
+                    ticks: {
+                      font: {
+                        size: 14,
+                      }
+                    }
+                  }
+                }
+              }
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Daily Exercise Completed</h5>
+            <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.querySelector('#doughnutChart'), {
+                  type: 'doughnut',
+                  data: {
+                    labels: [
+                      'Jumping Jack',
+                      'Abdominal Crunches',
+                      'Knee Pushups',
+                      'Side Arm Raises',
+                      'Squats',
+                      'Backward Lunges',
+                      'Cobra Stretch'
+                    ],
+                    datasets: [{
+                      label: 'My First Dataset',
+                      data: [{% for item in playlist_lt %}{{ item }}, {% endfor %}],
+                backgroundColor: [
+                'rgb(221, 255, 108)',
+                'rgb(255, 193, 108)',
+                'rgb(255, 118, 112)',
+                'rgb(223, 109, 255)',
+                'rgb(139, 109, 255)',
+                'rgb(110, 170, 255)',
+                'rgb(117, 254, 254)'
+
+              ],
+                hoverOffset: 4
+                    }]
+                  }
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+{% endblock scripts %}
+{% endblock %}
