@@ -14,6 +14,6 @@ urlpatterns = [
     # path('student-login/',views.student_register,name="student-login"),
     path('logout/', views.logout_view, name='logout'),
     path('dashboard/', views.dashboard, name = 'dashboard'),
-    path('progress',views.progress,name='progress'),
+    path('progress/',views.progress,name='progress'),
     # path('new_nav/', views.nav_new, name='navbar'),
 ]

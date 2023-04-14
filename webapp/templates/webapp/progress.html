@@ -1,4 +1,4 @@
-{% extends 'base-dashboard.html' %}
+{% extends 'webapp/base-dashboard.html' %}
 {% block title%} Progress {% endblock %}
 {% block progressactive %} active {% endblock progressactive %}
 {% load static %}
@@ -52,7 +52,7 @@
           <div class="card-body">
             <h5 class="card-title">Daily Calories Burned vs Days</h5>
             <canvas id="lineChart" style="max-height: 400px;"></canvas>
-            <script>
+            <!-- <script>
               document.addEventListener("DOMContentLoaded", () => {
                 new Chart(document.querySelector('#lineChart'), {
                   type: 'line',
@@ -100,7 +100,7 @@
               }
                 });
               });
-            </script>
+            </script> -->
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@
           <div class="card-body">
             <h5 class="card-title">Weight Loss vs Days</h5>
             <canvas id="lineChart1" style="max-height: 400px;"></canvas>
-            <script>
+            <!-- <script>
               document.addEventListener("DOMContentLoaded", () => {
                 new Chart(document.querySelector('#lineChart1'), {
                   type: 'line',
@@ -153,7 +153,7 @@
               }
                 });
               });
-            </script>
+            </script> -->
           </div>
         </div>
       </div>
@@ -163,7 +163,7 @@
           <div class="card-body">
             <h5 class="card-title">Daily Exercise Completed</h5>
             <canvas id="doughnutChart" style="max-height: 400px;"></canvas>
-            <script>
+            <!-- <script>
               document.addEventListener("DOMContentLoaded", () => {
                 new Chart(document.querySelector('#doughnutChart'), {
                   type: 'doughnut',
@@ -195,7 +195,7 @@
                   }
                 });
               });
-            </script>
+            </script> -->
           </div>
         </div>
       </div>
