@@ -32,11 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'webapp.apps.WebappConfig',
-    'calorie_tracker_app.apps.CalorieTrackerAppConfig',
-    'forum.apps.ForumConfig',
-    'workout_buddy.apps.WorkoutBuddyConfig',
-    'workout_tracker.apps.WorkoutTrackerConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'webapp',
+    'calorie_tracker_app',
+    'forum',
+    'workout_buddy',
+    'workout_tracker',
+
 ]
 
 MIDDLEWARE = [
@@ -75,6 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'prohealth.wsgi.application'
+# AUTH_USER_MODEL = 'webapp.User'
 
 
 # Database

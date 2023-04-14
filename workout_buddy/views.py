@@ -7,6 +7,7 @@ from.models import Workout
 from webapp.models import User
 from webapp.views import loginregister, login_required
 from fuzzywuzzy import fuzz
+from django.core.mail import send_mail
 
 
 @login_required
@@ -15,7 +16,7 @@ def index(request):
     context = {
         'user_activity': user_activity,
     }
-    return render(request, 'workout_buddy/landing.html', context)
+    return render(request, 'workout_buddy/landing.html',context)
 
 @login_required
 def about(request):
@@ -56,24 +57,26 @@ def profile(request):
 @login_required
 def profile_edit(request):
     if request.method == 'POST':
-        user_form = UserForm(request.POST, instance=request.user)
-        profile_form = ProfileForm(
-            request.POST, request.FILES, instance=request.user.profile)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            print('Profile successfully updated.')
-            return redirect('/profile')
-        else:
-            print('Error!')
-    else:
-        user_form = UserForm(instance=request.user)
-        profile_form = ProfileForm(instance=request.user.profile)
-    return render(request, 'workout_buddy/profile_edit.html', {
-        'user_form': user_form,
-        'profile_form': profile_form,
-    })
-
+        user = User.objects.get(id = request.user.id)
+        user.username = request.POST.get('username','')
+        user.name = request.POST.get('name','')
+        user.gender=request.POST.get('gender','')
+        user.dob=request.POST.get('dob','')
+        user.pincode=request.POST.get('pincode','')
+        user.location=request.POST.get('location','')
+        user.fav_gym_act1=request.POST.get('fav1','')
+        user.fav_gym_act2=request.POST.get('fav2','')
+        user.save()
+        messages.success(request, f'Your changes have been updated')
+        return redirect('profile')
+        # user.age=request.POST.get('age','')
+		# user.height=request.POST.get('height','')
+		# user.curr_wght=request.POST.get('curr_wt','')
+		# user.tar_wght=request.POST.get('tar_wt','')
+		# user.bmi=request.POST.get('bmi','')
+    return render(request, 'workout_buddy/profile_edit.html', locals())
+	# 	return redirect('school-feed', request.user.student.school.user.slug)
+    # return redirect(request, 'home',request.user.slug)
 
 @login_required
 def workout(request):
@@ -91,3 +94,11 @@ def workout(request):
         'form': form,
     })
 
+def message(request):
+    send_mail(
+        'Connection Request',
+        'Let us connect and start working out together!',
+        request.user.email,
+        ['to@example.com'],
+        fail_silently=False,
+    )

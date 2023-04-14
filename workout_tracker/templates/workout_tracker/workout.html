@@ -88,14 +88,14 @@
             <div class="col-lg-12 text-light">
               {% if workout.completed == False %}
               <!-- End Workout -->
-              <form id="end-workout-form" action="/workout/{{ workout.id }}/complete" method="POST">
+              <form id="end-workout-form" action="{% url 'complete-workout' {{workout.id}} %}" method="POST">
                 {% csrf_token %}
                 <!-- End Workout Button -->
                 <button id="end-workout" type="submit" class="btn btn-primary btn-lg float-right end-workout mb-4 ml-2">End Workout</button>
               </form>
               {% endif %}
               <!-- Edit Workout Button -->
-              <a href="/workout/{{ workout.id }}/edit" class="btn btn-outline-info btn-lg float-right mb-4">Edit</a>
+              <a href="{% url 'edit-workout' {{workout.id}} %}" class="btn btn-outline-info btn-lg float-right mb-4">Edit</a>
               <!-- Workout Name -->
               <h2 class="">{{ workout.name}}</h2>
               <!-- Workout Subtitle -->
@@ -108,7 +108,7 @@
               {% if workout.completed == False %}
               <div class="card bg-dark add-exercise mb-5 mt-5">
                 <div class="card-body">
-                  <form id="exercise-form" class="" action="/workout/{{ workout.id }}/exercise" method="POST">
+                  <form id="exercise-form" class="" action="{% url 'add-exercise' {{workout.id}} %}" method="POST">
                     {% csrf_token %}
                     <!-- Exercise Errors -->
                     {% if messages %} {% for message in messages %} {% if message.tags == "exercise error" %}
@@ -152,7 +152,7 @@
 
                       {% if workout.completed == False %}
                       <td>
-                        <form id="delete-exercise-form" action="/workout/{{ workout.id }}/exercise" method="GET" class="p-0">
+                        <form id="delete-exercise-form" action="" method="GET" class="p-0">
                           {% csrf_token %}
                           <input type="hidden" id="exercise_id" name="exercise_id" value="{{ exercise.id }}">
                           <input type="hidden" id="workout_id" name="workout_id" value="{{ workout.id }}">
