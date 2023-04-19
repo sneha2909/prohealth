@@ -126,3 +126,5 @@ def progress(request):
 #                                              'playlist_lt': playlist_lt[0][2:9]}
     return render(request, 'webapp/progress.html', )
 
+def diet_recommend(request):
+    return render(request, 'webapp/diet-recommendation.html')

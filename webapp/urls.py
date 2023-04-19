@@ -15,5 +15,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('dashboard/', views.dashboard, name = 'dashboard'),
     path('progress/',views.progress,name='progress'),
+    path('diet-recommendation/',views.diet_recommend,name='diet'),
     # path('new_nav/', views.nav_new, name='navbar'),
 ]
