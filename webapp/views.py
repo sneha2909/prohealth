@@ -5,6 +5,7 @@ from .models import User
 from django.contrib import messages
 from .models import User_Info, User_Exercise_Info, Playlist_Check, Diet_Menu
 import pandas as pd
+from keras.models import load_model
 
 
 #food recommendations
@@ -92,7 +93,10 @@ def logout_view(request):
 
 @login_required
 def dashboard(request):
-
+    data = readcsv('webapp/diet_data_new_simulated.csv')
+    model = load_model('webapp/my_model.h5')
+    print(model.summary())
+    print(model.predict(data))
     return render(request, 'webapp/workout_dashboard.html')
 
 
@@ -132,7 +136,7 @@ def progress(request):
     return render(request, 'webapp/progress.html', )
 
 
-def read_csv(path):
+def readcsv(path):
     data = pd.read_csv(path)
     data = data.iloc[:70]
     return data
@@ -352,7 +356,7 @@ def genetic(data):
 
 def diet_recommend(request):
     totalcalories = 0
-    data = read_csv("webapp/indian_meal_increased.csv")
+    data = readcsv("webapp/indian_meal_increased.csv")
     food = data['Food']
     recommended_food = []
     calories = data['Calories']
@@ -372,3 +376,4 @@ def diet_recommend(request):
 
     print("\nAverage Daily Calories:", totalcalories/7)
     return render(request, 'webapp/diet-recommendation.html', context)
+
