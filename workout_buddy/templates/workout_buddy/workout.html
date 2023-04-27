@@ -160,11 +160,15 @@
 {% block submenu %}
 <!-- Sidebar -->
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;margin-top: 13vh;">
-    <div class="position-sticky" style="background-color: #0a0a0a;margin-top: 0.5rem;">
+    <div class="position-sticky" style="background-color: #0a0a0a; margin-top: 0.5rem;">
         <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
+            <a href="{% url 'home' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                <i class="fa-solid fa-house"></i><span> Home</span>
+            </a>
+            <hr>
             <a href="{% url 'workout_buddy' %}" class="list-group-item list-group-item-action py-2 ripple"
                 aria-current="true">
-                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+                <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Workout Buddy</span>
             </a>
             <hr>
             <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
@@ -172,12 +176,43 @@
                 <i class="fa-solid fa-user-group fa-fw me-3"></i><span>Friends</span>
             </a>
             <hr>
-            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple active">
-                <i class="fa-sharp fa-solid fa-dumbbell fa-fw me-3"></i><span>Workout</span>
+            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+                <i class="fa-solid fa-plus"></i><span> Add Workout</span>
+            </a>
+            <hr>
+            <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-dumbbell"></i><span> Workout Recommendations</span>
+            </a>
+            <hr>
+            <a href="{% url 'progress' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-duotone fa-chart-simple fa-lg"></i><span> Progress</span>
+            </a>
+            <hr>
+            <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-pot-food fa-lg"></i><span>Diet Recommendations</span>
+            </a>
+            <hr>
+            <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-pot-food fa-lg"></i><span>Diet Recommendations</span>
+            </a>
+            <hr>
+            <a href="{% url 'index' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-tally"></i><span>Calorie Tracker</span>
+            </a>
+            <hr>
+            <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-users"></i><span>ProHealth Community</span>
             </a>
             <hr>
             <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span></a>
+                    class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span>
+            </a>
+            <hr>
+            <a href="{% url 'logout' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-arrow-right-from-bracket"></i><span> Logout</span>
+            </a>
+            <hr>
+
         </div>
     </div>
 </nav>

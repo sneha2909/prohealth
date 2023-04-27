@@ -1,0 +1,17 @@
+{% extends 'webapp/base-dashboard.html' %}
+{% load static %}
+{% block dashboardcontent %}
+<main style="margin-top: 78px;">
+    <div class="container pt-4">
+        <div class="card bg-dark" style="min-width: fit-content;" >
+            <div class="list-group list-group-dark">
+                {% for food in recommended_food %}
+                <a href="#" class="list-group-item list-group-item-action px-3 border-0 rounded-3 mb-2" style="background-color: #ff9d57
+                !important;color: #0a0a0a !important;">
+                    {{ food }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock dashboardcontent %}

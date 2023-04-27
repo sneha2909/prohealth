@@ -74,10 +74,10 @@
                     Features
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">Workout plan</a></li>
+                    <li><a class="dropdown-item" href="{% url 'dashboard' %}">Workout plan</a></li>
                     <li><a class="dropdown-item" href="#">Track your progress</a></li>
-                    <li><a class="dropdown-item" href="#">Diet Recommendation</a></li>
-                    <li><a class="dropdown-item" href="{% url 'calorie_tracker_app:index' %}">Calorie Tracker</a></li>
+                    <li><a class="dropdown-item" href="{% url 'diet' %}">Diet Recommendation</a></li>
+                    <li><a class="dropdown-item" href="{% url 'index' %}">Calorie Tracker</a></li>
                     <li><a class="dropdown-item" href="{% url 'workout-tracker' %}">Workout Tracker</a></li>
                     <li><a class="dropdown-item" href="{% url 'workout_buddy' %}">Workout buddy</a></li>
                     <li><a class="dropdown-item" href="{% url 'forum' %}">ProHealth Community</a></li>
