@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 def calorie_tracker(request):
 
     if request.method == "POST":
-        food_consumed = request.POST.get['food_consumed']
+        food_consumed = request.POST['food_consumed']
         consume = FoodModel.objects.get(name=food_consumed)
         user = request.user
         consume = ConsumeModel(user=user, food_consumed=consume)
@@ -23,5 +23,5 @@ def delete_consume(request, id):
     consumed_food = ConsumeModel.objects.get(id=id)
     if request.method == 'POST':
         consumed_food.delete()
-        return redirect('/')
+        return redirect('/calorie-tracker/')
     return render(request, 'calorie_tracker_app/delete.html')

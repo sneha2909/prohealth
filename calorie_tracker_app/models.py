@@ -6,11 +6,12 @@ User = get_user_model()
  #Create your models here.
 class FoodModel(Model):
     
-    name = CharField(max_length=100)
-    carbs = FloatField()
-    protein = FloatField()
-    fats = FloatField()
-    calories = IntegerField()
+    name = CharField(("Food"),max_length=255)
+    calories = IntegerField(("Calories"),max_length=255)
+    carbs = FloatField(("Carbohydrate"),max_length=255)
+    fats = FloatField(("Fat"),max_length=255)
+    protein = FloatField(("Protein"),max_length=255)
+    
 
     def __str__(self):
         return self.name
