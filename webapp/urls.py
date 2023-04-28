@@ -13,5 +13,8 @@ urlpatterns = [
     # path('school-login/',views.school_register,name="school-login"),
     # path('student-login/',views.student_register,name="student-login"),
     path('logout/', views.logout_view, name='logout'),
+    path('dashboard/', views.dashboard, name = 'dashboard'),
+    path('progress/',views.progress,name='progress'),
+    path('diet-recommendation/',views.diet_recommend,name='diet'),
     # path('new_nav/', views.nav_new, name='navbar'),
 ]

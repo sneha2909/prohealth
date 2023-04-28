@@ -13,14 +13,8 @@ class User(AbstractUser):
     pincode=models.CharField(max_length=6,blank=True, null=True)
     location=models.CharField(max_length=30, null=True)
     email = models.EmailField()
-<<<<<<< HEAD
     fav_gym_act1 = models.CharField(max_length=255, unique=True, null=True)
     fav_gym_act2 = models.CharField(max_length=255, unique=True, null=True)
-=======
-    # location
-    # favorite gym acitivity 1
-    # favorite gym acitivity 2
->>>>>>> 5ce4364a5feb1d53de1bf5398fd97573fa050fad
     # slug = AutoSlugField(populate_from='name')
     # USERNAME_FIELD = 'username'
     # REQUIRED_FIELDS = []
