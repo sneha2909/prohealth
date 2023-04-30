@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block content %}
-<main style="margin-top: 68px;">
+<main style="margin-top: 13vh;">
     <div class="container pt-4">
         <div class="row">
-            <div class="col-lg-12">
-                <form id="workout-form" action="{% url 'new-workout' %}" method="POST">
+            <div class="col align-self-center">
+
+                <form id="workout-form" action="{% url 'new-workout' %}" method="POST"
+                    style=" border: 2px solid #fbfbfb; border-radius: 8px; box-shadow: 5px 10px #fbfbfb6e !important; padding: 15px; margin: 0px 48px;">
                     {% csrf_token %}
                     <!-- Workout Errors -->
                     {% if messages %} {% for message in messages %} {% if message.tags == "workout error" %}
@@ -16,18 +18,25 @@
                     </div>
                     {% endif %} {% endfor %} {% endif %}
                     <!-- Workout Name -->
-                    <div class="form-group">
-                        <input id="name" type="text" name="name" required class="input-material form-control-lg"
-                            placeholder="Name">
+                    <div class="col" style="padding: 15px; margin:0 10px;">
+                        <div class=" row form-group">
+                            <input id="name" type="text" name="name" required class="input-material form-control-lg"
+                                placeholder="Name">
+                        </div>
+                        <!-- Workout Description -->
+                        <div class=" row form-group">
+                            <input id="description" type="text" name="description"
+                                class="input-material form-control-lg" placeholder="Description">
+                        </div>
+                        <!-- Add Workout Button -->
+
+
+
+
                     </div>
-                    <!-- Workout Description -->
-                    <div class="form-group">
-                        <input id="description" type="text" name="description" class="input-material form-control-lg"
-                            placeholder="Description">
-                    </div>
-                    <!-- Add Workout Button -->
-                    <input id="add" type="submit" value="Add" class="btn btn-primary btn-lg" style="margin-top: 2rem;">
+                    <input id="add" type="submit" value="Add" class="banner_btn " style=" margin:1.5rem 20px 0rem 20px;">
                 </form>
+
             </div>
         </div>
     </div>
