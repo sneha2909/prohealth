@@ -1,11 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+import numpy as np
 from .models import User
 from django.contrib import messages
 from .models import User_Info, User_Exercise_Info, Playlist_Check, Diet_Menu
 import pandas as pd
 from keras.models import load_model
+from sklearn.preprocessing import StandardScaler
+import pickle
+from scipy.optimize import differential_evolution
 
 
 #food recommendations
@@ -90,13 +94,77 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
+# def scaler(new_data):
+#     # Load the saved scaler from the pickle file
+#     with open('webapp/scaler.pkl', 'rb') as f:
+#         scaler = pickle.load(f)
+
+#     new_data_scaled = scaler.transform(new_data)
+#     return new_data_scaled
+
+
+def readcsv(path):
+    data = pd.read_csv(path)
+    return data
+
+
+def pre_process(raw):
+    non_features = ['weight', 'change']
+    data = raw.dropna()
+    X = data.drop(columns=non_features)
+    exercises = X.columns.tolist()[1:]
+    X = X.values
+    
+    X = np.asarray(X).astype(np.float32)
+    
+    with open('webapp/scaler.pkl', 'rb') as f:
+        scaler = pickle.load(f)
+    X_scaled = scaler.transform(X)
+    # print(new_data_scaled)
+    return X_scaled, exercises
+
+
+def de_predict(data):
+    # daily_target = -0.25  # daily loss aim in ounces, approx 0.25kg
+    # confidence_factor = 0.5
+    # model = load_model('webapp/my_model.h5')
+    # X = data.copy()
+    # for i in range(1, len(X)):
+    #     X[i] = np.round(X[i])
+    # scaler = pickle.load(open('webapp/scaler.pkl', 'rb'))
+    # X_scaled = scaler.transform(X.reshape(1, -1))
+    # return np.abs(model.predict(X_scaled) - daily_target/confidence_factor)
+    daily_target = -0.25  # daily loss aim in ounces, approx 0.25kg
+    confidence_factor = 0.5
+    model = load_model('webapp/my_model.h5')
+    z = data.copy()
+    for i in range(1, len(data)):
+        z[i] = np.round(data[i])
+    z_2d = z.reshape(1, -1)
+    scaler = pickle.load(open('webapp/scaler.pkl', 'rb'))
+    z_scaled = scaler.transform(z_2d)
+    return np.abs(model.predict(z_scaled) - daily_target/confidence_factor)
+
+def recommend_exercise(calorie, exercises, data):
+    bounds = [(calorie, calorie+1)] + len(exercises)*[(0, 1)]
+    result = differential_evolution(de_predict, bounds=bounds)
+    recommended_exercises = [(exercise, recommend)
+                             for recommend, exercise in zip(result.x[1:], exercises)]
+    recommended_exercises.sort(reverse=True, key=lambda x: x[1])
+    top_recommendation = recommended_exercises[0][0] if recommended_exercises[0][1] > 0.5 else 'Rest day'
+    return top_recommendation
 
 @login_required
 def dashboard(request):
-    data = readcsv('webapp/diet_data_new_simulated.csv')
-    model = load_model('webapp/my_model.h5')
-    print(model.summary())
-    print(model.predict(data))
+    raw = readcsv('webapp/health.csv')
+    print(raw.head())
+    X_scaled, exercises = pre_process(raw)
+    menu = readcsv('webapp/sample_menu.csv')
+    # model = load_model('webapp/my_model.h5')
+    menu['recommended_exercise'] = menu['calories'].apply(
+        lambda x: recommend_exercise(x, exercises, X_scaled))
+
+    print(menu['recommended_exercise'])
     return render(request, 'webapp/workout_dashboard.html')
 
 
@@ -135,11 +203,6 @@ def progress(request):
 #                                              'playlist_lt': playlist_lt[0][2:9]}
     return render(request, 'webapp/progress.html', )
 
-
-def readcsv(path):
-    data = pd.read_csv(path)
-    data = data.iloc[:70]
-    return data
     
 def weeklyCalories():
     # Calorie Calculator
