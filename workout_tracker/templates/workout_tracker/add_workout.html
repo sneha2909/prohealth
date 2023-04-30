@@ -1,77 +1,38 @@
-{% extends "webapp/base-temp.html" %}
+{% extends "workout_buddy/navbar.html" %}
 {% load static %}
 
-{% block style %}
-
-<link rel="stylesheet" href="{% static 'workout_tracker/css/font.css' %}">
-<!-- <link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}"> -->
-<!-- Google fonts - Muli-->
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700"> -->
-<!-- theme stylesheet-->
-<link rel="stylesheet" href="{% static 'workout_tracker/css/style.red.css' %}" id="theme-stylesheet">
-<!-- Custom stylesheet - for your changes-->
-<link rel="stylesheet" href="{% static 'workout_tracker/css/custom.css' %}">
-{% endblock style %}
-
-{% block body %}
-<main style="margin-top: 5vh; padding: 0;">
-    <div class="d-flex align-items-stretch ">
-        <nav id="sidebar" style="margin-top: 11vh;">
-            <div class="sidebar-header d-flex align-items-center ">
-                <img src="{% static 'workout_tracker/images/badges/badge_1.png' %}" alt="..."
-                    class="img-fluid rounded-circle avatar">
-                <div class="title">
-                    <h1 class="h5">{{user.username}}</h1>
-                    <p>Newbie</p>
-                </div>
-            </div><span class="heading">Menu</span>
-            <ul class="list-unstyled">
-                <li><a href="{% url 'workout-tracker'  %}"><i class="icon-home"></i> Home</a></li>
-                <li class="active"><a href="{% url 'new-workout' %}"><i class="fa fa-plus-square"></i> Workout</a></li>
-                <li> <a href="{% url 'all-workout' %}"><i class="fa fa-th-list"></i> View All </a></li>
-            </ul>
-        </nav>
-        <div class="page-content ">
-            <div class="page-header">
-                <div class="container-fluid">
-                    <h2 class="h5 no-margin-bottom">Add Workout</h2>
-                </div>
-            </div>
-            <section class="no-padding-bottom">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <form id="workout-form" action="{% url 'new-workout' %}" method="POST">
-                                {% csrf_token %}
-                                <!-- Workout Errors -->
-                                {% if messages %} {% for message in messages %} {% if message.tags == "workout error" %}
-                                <div class="alert alert-danger alert-dismissable" role="alert">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <strong>Error!</strong> {{ message }}
-                                </div>
-                                {% endif %} {% endfor %} {% endif %}
-                                <!-- Workout Name -->
-                                <div class="form-group"  >
-                                    <input id="name" type="text" name="name" required
-                                        class="input-material form-control-lg" placeholder="Name" >
-                                </div>
-                                <!-- Workout Description -->
-                                <div class="form-group">
-                                    <input id="description" type="text" name="description"
-                                        class="input-material form-control-lg" placeholder="Description">
-                                </div>
-                                <!-- Add Workout Button -->
-                                <input id="add" type="submit" value="Add" class="btn btn-primary btn-lg" style="margin-top: 2rem;">
-                            </form>
-                        </div>
+{% block content %}
+<main style="margin-top: 68px;">
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="workout-form" action="{% url 'new-workout' %}" method="POST">
+                    {% csrf_token %}
+                    <!-- Workout Errors -->
+                    {% if messages %} {% for message in messages %} {% if message.tags == "workout error" %}
+                    <div class="alert alert-danger alert-dismissable" role="alert">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error!</strong> {{ message }}
                     </div>
-                </div>
-            </section>
+                    {% endif %} {% endfor %} {% endif %}
+                    <!-- Workout Name -->
+                    <div class="form-group">
+                        <input id="name" type="text" name="name" required class="input-material form-control-lg"
+                            placeholder="Name">
+                    </div>
+                    <!-- Workout Description -->
+                    <div class="form-group">
+                        <input id="description" type="text" name="description" class="input-material form-control-lg"
+                            placeholder="Description">
+                    </div>
+                    <!-- Add Workout Button -->
+                    <input id="add" type="submit" value="Add" class="btn btn-primary btn-lg" style="margin-top: 2rem;">
+                </form>
+            </div>
         </div>
     </div>
-
 </main>
-{% endblock body %}
+{% endblock content %}
 {% block script %}
 <!-- Javascript files-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

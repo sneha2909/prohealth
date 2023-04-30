@@ -5,116 +5,134 @@
 <link href="{% static 'forum/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'forum/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
 <link href="{% static 'forum/style.css' %}" rel="stylesheet">
+<style>
+  .entry-title {
+    color: #fbfbfb !important;
+    text-align: left !important;
+  }
+
+  li {
+    color: #fbfbfb !important;
+  }
+
+  .entry-meta ul li {
+    color: #fbfbfb !important;
+  }
+</style>
 {% endblock style %}
 {% block body %}
 
 <main id="main" class="mt-5">
 
 
-    <!-- ======= Blog Single Section ======= -->
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
+  <!-- ======= Blog Single Section ======= -->
+  <section id="blog" class="blog">
+    <div class="container" data-aos="fade-up" style="margin-top: 2rem;">
 
-        <div class="row">
+      <div class="row" >
 
-          <div class="col-lg-8 entries">
+        <div class="col align-self-center entries" style="padding: 15px; margin:0 48px;">
 
-            <article class="entry entry-single">
-              <h2 class="entry-title">
-                {{ post.title }}
-              </h2>
+          <article class="entry entry-single" style="border: 2px solid #fbfbfb; border-radius: 8px;">
+            <h2 class="entry-title">
+              {{ post.title }}
+            </h2>
+            <div class="entry-content">
+              <p style="color: #fbfbfb !important;">
+                {{ post.content }}
+              </p>
+            </div>
 
-              <div class="entry-meta">
-                <ul>
-                  {% comment %} <li class="d-flex align-items-center"><a><i class="bi bi-flag"></i>Flag</a></li> {% endcomment %}
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i><time datetime="2020-01-01">{{ post.timestamp }}</time></li>
-                  {% if request.user == post.user %}
-                  <li class="d-flex align-items-right" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-pencil-square"></i>Edit</li>
-                  <li class="d-flex align-items-right" onclick="delete_post()"><i class="bi bi-trash"></i>Delete</li>
-                  {% endif %} 
-                </ul>
-              </div>
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Update Post</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
+            <div class="entry-meta" >
+              <ul>
+                {% comment %} <li class="d-flex align-items-center"><a><i class="bi bi-flag"></i>Flag</a></li> {% endcomment %}
+                <li class="d-flex align-items-center"><i class="bi bi-clock"></i><time datetime="2020-01-01"
+                    style="color: #fbfbfb !important;">{{post.timestamp }}</time></li>
+                {% if request.user == post.user %}
+                <li class="d-flex align-items-right" data-toggle="modal" data-target="#exampleModal" id="edit"><i
+                    class="bi bi-pencil-square" style="color: #fbfbfb !important;"></i>Edit</li>
+                <li class="d-flex align-items-right" onclick="delete_post()" style="color: #fbfbfb !important;"
+                  id="delete"><i class="bi bi-trash"></i>Delete</li>
+                {% endif %}
+              </ul>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #fbfbfb !important;">Update Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <label style="color: #fbfbfb !important;">Title: </label>
+                      <input type="text" value="{{ post.title }}" id="edit_title">
                     </div>
-                    <div class="modal-body">
-                      <div class="row">
-                        <label >Title: </label>
-                        <input type="text" class="mx-2" value="{{ post.title }}" id="edit_title">
-                      </div>
-                      <div class="row">
-                        <label >Content: </label>
-                        <input type="text" class="mx-2" value="{{ post.content }}" id="edit_content">
-                      </div>
+                    <div class="row">
+                      <label style="color: #fbfbfb !important;">Content: </label>
+                      <input type="text" value="{{ post.content }}" id="edit_content">
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" onclick="edit_post()">Save changes</button>
-                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="edit_post()">Save changes</button>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="entry-content">
-                <p>
-                  {{ post.content }}
-                </p>
+
+
+          </article><!-- End blog entry -->
+          <div class="reply-form mb-5">
+            <h4 style="color: #fbfbfb !important;">Leave a Reply</h4>
+            <div class="row">
+              <div class="col form-group">
+                <textarea name="comment" class="form-control" id="comment" placeholder="Your Comment*"></textarea>
               </div>
-
-            </article><!-- End blog entry -->
-            <div class="reply-form mb-5">
-              <h4>Leave a Reply</h4>
-                <div class="row">
-                  <div class="col form-group">
-                    <textarea name="comment" class="form-control" id="comment" placeholder="Your Comment*"></textarea>
-                  </div>
-                </div>
-                <button class="btn btn-primary" onclick="add_comment()">Post Comment</button>
             </div>
-            <div id="all_comments">
-              {% include 'forum/forum_post_comments.html' %}
-            </div>
+            <button class="banner_btn" onclick="add_comment()">Post Comment</button>
+          </div>
+          <div id="all_comments">
+            {% include 'forum/forum_post_comments.html' %}
+          </div>
 
-            
-          </div><!-- End blog entries list -->
-          {% include 'forum/sidebar.html' %}
-        </div>
+
+        </div><!-- End blog entries list -->
+
       </div>
-    </section><!-- End Blog Single Section -->
-  </main><!-- End #main -->
+    </div>
+  </section><!-- End Blog Single Section -->
+</main><!-- End #main -->
 
 {% endblock body %}
 
 {% block script %}
 <script>
-  function add_comment(){
-        var comment = $('#comment').val();
-        $.ajax(
-        {
-            type:"POST",
-            url: "{% url 'forum_add_comment' %}",
-            data:{
-                    'post_id': '{{ post.id }}',
-                    'comment': comment,
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
-            },
-            success: function( response ) 
-            {
-              console.log(response)
-                $('#all_comments').empty();
-                $('#all_comments').html(response);
-                $('#comment').val('');
-            }
-         })
+  function add_comment() {
+    var comment = $('#comment').val();
+    $.ajax(
+      {
+        type: "POST",
+        url: "{% url 'forum_add_comment' %}",
+        data: {
+          'post_id': '{{ post.id }}',
+          'comment': comment,
+          csrfmiddlewaretoken: '{{ csrf_token }}',
+        },
+        success: function (response) {
+          console.log(response)
+          $('#all_comments').empty();
+          $('#all_comments').html(response);
+          $('#comment').val('');
+        }
+      })
   }
-  function delete_post(){
+  function delete_post() {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -126,60 +144,58 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax(
-        {
-            type:"POST",
+          {
+            type: "POST",
             url: "{% url 'forum_delete_post' %}",
-            data:{
-                    'post_id': '{{ post.id }}',
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
+            data: {
+              'post_id': '{{ post.id }}',
+              csrfmiddlewaretoken: '{{ csrf_token }}',
             },
-            success: function( response ) 
-            {
-              if(response.message == 'success'){
+            success: function (response) {
+              if (response.message == 'success') {
                 Swal.fire({
                   title: 'Deleted!',
                   text: 'Your Post has been deleted.',
                   icon: 'success',
                   confirmButtonText: 'Ok',
                 }).then((result) => {
-                  window.location.href='/forum';
+                  window.location.href = '/forum';
                 })
               }
             }
-         })
-        
+          })
+
       }
     })
   }
-  function edit_post(){
-        var title = $('#edit_title').val();
-        var content = $('#edit_content').val();
-        $.ajax(
-        {
-            type:"POST",
-            url: "{% url 'forum_add_post' %}",
-            data:{
-                    'title': title,
-                    'post_id': '{{ post.id }}',
-                    'content': content,
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
-            },
-            success: function( response ) 
-            {
-               if (response.message == 'success') {
-                Swal.fire({
-                  title: 'Updated!',
-                  text: 'Your Post has been updated!.',
-                  icon: 'success',
-                  confirmButtonText: 'Ok',
-                }).then((result) => {
-                  location.reload();
-                })
-               }
-            }
-         })
+  function edit_post() {
+    var title = $('#edit_title').val();
+    var content = $('#edit_content').val();
+    $.ajax(
+      {
+        type: "POST",
+        url: "{% url 'forum_add_post' %}",
+        data: {
+          'title': title,
+          'post_id': '{{ post.id }}',
+          'content': content,
+          csrfmiddlewaretoken: '{{ csrf_token }}',
+        },
+        success: function (response) {
+          if (response.message == 'success') {
+            Swal.fire({
+              title: 'Updated!',
+              text: 'Your Post has been updated!.',
+              icon: 'success',
+              confirmButtonText: 'Ok',
+            }).then((result) => {
+              location.reload();
+            })
+          }
+        }
+      })
   }
-  function delete_comment(id){
+  function delete_comment(id) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -191,28 +207,27 @@
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax(
-        {
-            type:"POST",
+          {
+            type: "POST",
             url: "{% url 'forum_delete_comment' %}",
-            data:{
-                    'comment_id': id,
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
+            data: {
+              'comment_id': id,
+              csrfmiddlewaretoken: '{{ csrf_token }}',
             },
-            success: function( response ) 
-            {
-                Swal.fire({
-                  title: 'Deleted!',
-                  text: 'Your Comment has been deleted.',
-                  icon: 'success',
-                  confirmButtonText: 'Ok',
-                }).then((result) => {
+            success: function (response) {
+              Swal.fire({
+                title: 'Deleted!',
+                text: 'Your Comment has been deleted.',
+                icon: 'success',
+                confirmButtonText: 'Ok',
+              }).then((result) => {
                 $('#all_comments').empty();
                 $('#all_comments').html(response);
-                })
-              
+              })
+
             }
-         })
-        
+          })
+
       }
     })
   }

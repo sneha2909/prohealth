@@ -16,11 +16,15 @@
                     <p>Get your perfect workout. Stay fit physically and mentally anytime, anywhere with ProHealth
                     </p>
                     <!---sessions django---->
+                    {% if user.is_authenticated %}
+                    <div class="button">
+                        <a class="banner_btn" href="{% url 'dashboard' %}">GET YOUR PERSONALIZED WORKOUT NOW</a>
+                    </div>
+                    {% else %}
                     <div class="button">
                         <a class="banner_btn" href="{% url 'loginregister' %}">GET YOUR PERSONALIZED WORKOUT NOW</a>
-                        <!-- <a class="banner_btn ms-3" href="#"
-                                style="background: transparent; border: 1px solid #FBFBFB;">Book a Class</a> -->
                     </div>
+                    {% endif %}
                     <a href="#features" class="scroll-down  d-flex align-items-center justify-content-center mt-5"
                         address="true"><i class="fas fa-arrow-down"></i></a>
 

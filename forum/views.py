@@ -38,6 +38,7 @@ def add_post(request):
         print(request.POST)   
         content = request.POST.get('content')
         title = request.POST.get('title')
+        print('post is saved')
         inference = InferenceApi("bhadresh-savani/distilbert-base-uncased-emotion")
         infer = inference(inputs=content)[0][0]['label']
         infer_all = inference(inputs=content)[0]
