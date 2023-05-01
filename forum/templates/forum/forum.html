@@ -1,4 +1,4 @@
-{% extends "forum/base-temp.html" %}
+{% extends 'forum/base-temp.html' %}
 {% load static %}
 {% block title %}Forums{% endblock title %}
 {% block style %}
@@ -6,48 +6,59 @@
 <link href="{% static 'forum/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'forum/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
 <link href="{% static 'forum/style.css' %}" rel="stylesheet">
+<style>
+      .entry-title {
+    color: #fbfbfb !important;
+    text-align: left !important;
+  }
+</style>
 {% endblock style %}
-{% block body  %}
+{% block body %}
 
 
 
-<main id="main">
+<main id="main" style="margin-top: 12vh;">
 
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
         <div class="container" data-aos="fade-up">
             <div class="row">
-                <div class="col-lg-8 entries">
-                    <div class="reply-form" style="margin-top:-0.1rem; margin-bottom:3.7rem;">
-                        <h3 class="entry-title">
+                <div class="col align-self-center entries" style="padding: 15px; margin:0 48px;">
+                    <div class="reply-form align-self-center" style="margin-top:-0.1rem;margin-bottom: 3.7rem; border: 2px solid #fbfbfb; border-radius: 8px;">
+                        <h3 class="entry-title text-white">
                             <div>
                                 Add a new thread
                             </div>
                         </h3>
-                            <div class="row">
-                                <div class="col form-group">
-                                    <input name="Topic" type="text" id='title' class="form-control"
-                                        placeholder="What's on your Mind?">
-                                </div>
+                        <div class="row">
+                            <div class="col form-group">
+                                <input name="Topic" type="text" id='title' class="form-control"
+                                    placeholder="What's on your Mind?">
                             </div>
-                            <div class="row">
-                                <div class="col form-group">
-                                    <textarea name="content" id="content" class="form-control"
-                                        placeholder="Please Describe*"></textarea>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-group">
+                                <textarea name="content" id="content" class="form-control"
+                                    placeholder="Please Describe*"></textarea>
                             </div>
-                            <button onclick="submit_post()" class="btn btn-primary">Post Content</button>
+                        </div>
+                        <button onclick="submit_post()" class="banner_btn">Post Content</button>
                     </div>
                     <div id='previous-posts'>
                         {% include 'forum/forum_posts.html' %}
                     </div>
 
                 </div><!-- End blog entries list -->
-                {% include 'forum/sidebar.html' %}
 
             </div>
 
         </div>
+    </section><!-- End Blog Section -->
+
+
+    </div>
+
+    </div>
     </section><!-- End Blog Section -->
 
 </main><!-- End #main -->
@@ -56,27 +67,26 @@
 
 {% block script %}
 <script>
-    function submit_post(){
+    function submit_post() {
         var title = $('#title').val();
         var content = $('#content').val();
-        console.log(title,content);
+        console.log(title, content);
         $.ajax(
-        {
-            type:"POST",
-            url: "{% url 'forum_add_post' %}",
-            data:{
+            {
+                type: "POST",
+                url: "{% url 'forum_add_post' %}",
+                data: {
                     'title': title,
                     'content': content,
                     csrfmiddlewaretoken: '{{ csrf_token }}',
-            },
-            success: function( response ) 
-            {
-                $('#previous-posts').empty();
-                $('#previous-posts').html(response);
-                $('#content').val('');
-                $('#title').val('');
-            }
-         })
+                },
+                success: function (response) {
+                    $('#previous-posts').empty();
+                    $('#previous-posts').html(response);
+                    $('#content').val('');
+                    $('#title').val('');
+                }
+            })
     }
 </script>
 {% endblock script %}
