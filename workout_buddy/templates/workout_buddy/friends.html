@@ -12,56 +12,57 @@
 <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a;margin-top: 13vh;">
     <div class="position-sticky" style="background-color: #0a0a0a; margin-top: 0.5rem;">
         <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
-            <a href="{% url 'home' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-                <i class="fa-solid fa-house"></i><span> Home</span>
+            <!-- <a href="{% url 'home' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          <i class="fa-solid fa-house"></i><span> Home</span>
+        </a>
+        <hr> -->
+            <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-dumbbell"></i><span> Workout Recommendations</span>
+            </a>
+            <hr>
+            <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                    class="fa-solid fa-pot-food fa-lg"></i><span>Diet Recommendations</span>
             </a>
             <hr>
             <a href="{% url 'workout_buddy' %}" class="list-group-item list-group-item-action py-2 ripple"
                 aria-current="true">
                 <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Workout Buddy</span>
             </a>
-            <hr>
-            <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
-                aria-current="true">
-                <i class="fa-solid fa-user-group fa-fw me-3"></i><span>Friends</span>
-            </a>
-            <hr>
-            <a href="{% url 'workout' %}" class="list-group-item list-group-item-action py-2 ripple">
-                <i class="fa-solid fa-plus"></i><span> Add Workout</span>
-            </a>
-            <hr>
-            <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-dumbbell"></i><span> Workout Recommendations</span>
-            </a>
-            <hr>
-            <a href="{% url 'progress' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-duotone fa-chart-simple fa-lg"></i><span> Progress</span>
-            </a>
-            <hr>
-            <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-pot-food fa-lg"></i><span>Diet Recommendations</span>
-            </a>
-            <hr>
-            <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-pot-food fa-lg"></i><span>Diet Recommendations</span>
-            </a>
-            <hr>
-            <a href="{% url 'index' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-tally"></i><span>Calorie Tracker</span>
-            </a>
-            <hr>
-            <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-users"></i><span>ProHealth Community</span>
-            </a>
-            <hr>
-            <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span>
-            </a>
-            <hr>
-            <a href="{% url 'logout' %}" class="list-group-item list-group-item-action py-2 ripple"><i
-                    class="fa-solid fa-arrow-right-from-bracket"></i><span> Logout</span>
-            </a>
-            <hr>
+
+            <span> <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
+                    aria-current="true">
+                    <i class="fa-solid fa-user-group fa-fw me-3" style="margin-left: 1.5rem;"></i><span>Friends</span>
+                </a></span>
+            <span>
+                <hr>
+
+                <a href="{% url 'progress' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa-duotone fa-chart-simple fa-lg"></i><span> Progress</span>
+                </a>
+                <hr>
+
+                <a href="{% url 'workout-tracker' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fas fa-tachometer-alt fa-fw me-3"></i><span>Workout Tracker</span>
+                </a>
+                <span> <a href="{% url 'new-workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fa-solid fa-plus" style="margin-left: 1.5rem;"></i><span> Add Workout</span>
+                    </a> </span>
+                <span> <a href="{% url 'all-workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+                        <i class="fa-solid fa-list" style="margin-left: 1.5rem;"></i><span> View All Workouts</span>
+                    </a> </span>
+                <hr>
+                <a href="{% url 'index' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa-solid fa-tally"></i><span>Calorie Tracker</span>
+                </a>
+                <hr>
+                <a href="{% url 'forum' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa-solid fa-users"></i><span>ProHealth Community</span>
+                </a>
+                <hr>
+                <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+                        class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span>
+                </a>
+
 
         </div>
     </div>
@@ -70,24 +71,32 @@
 {% endblock submenu %}
 <main style="margin-top: 5vh;">
     <div class="container pt-4">
-        {% if friend_list|length == 0 %}
-        <h2>There are no GymBuddies near you that like
-            <strong>{{ current_user.profile.activity1 }}</strong> :(
-        </h2>
-        {% else %}
-        <h2>GymBuddies who like
-            <strong>{{ current_user.profile.activity1 }}</strong>
-        </h2>
+        <!-- {% for friend in friend_list %}
+        {% if user.fav_gym_act1 == friend.fav_gym_act1 %}
+        <h2>GymBuddies who like <strong>{{ user.fav_gym_act1 }}:{{friend.username}}</strong></h2>
+        {% elif user.fav_gym_act2 == friend.fav_gym_act2 %}
+        <h2>GymBuddies who like <strong>{{ user.fav_gym_act2 }}:{{friend.username}}</strong></h2>
         {% endif %}
+        {% endfor %}
+        <h2>There are no GymBuddies who like<strong>{{ user.fav_gym_act1 }}</strong> or <strong>{{ user.fav_gym_act2 }} -->
+        <h2>Gym Buddies whom you can connect with</h2>
+
         {% for friend in friend_list %}
         <div class="row" style="margin:auto;">
-            <div class="card" style="margin:auto; margin-top:3vw; width:18rem;">
+            <div class="card" style="margin:auto; margin-top:3vw; width:25rem; background-color: #fbfbfb;">
                 <!-- <img class="card-img-top" src="{{ friend.profile.image.url }}" alt="Card image cap"> -->
                 <div class="card-body">
                     <h5 class="card-title">{{friend.name}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">@{{ friend.name }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">@{{ friend.username }}</h6>
+                    <h7 class="card-subtitle mb-2"> Favorite gym activity: <strong><em>{{friend.fav_gym_act1}}</em></strong></h7>
+                    <br>
+                    <h7 class="card-subtitle mb-2 "> 2nd Favorite gym activity: <strong><em>{{friend.fav_gym_act2}}</em> </strong></h7>
+                    <h7 class="card-subtitle mb-2 "> Location: <strong><em>{{friend.location }}</em> </strong></h7>
+
                     <!-- <p class="card-text">{{ friend.profile.bio }}</p> -->
-                    <a href="#" class="banner_btn">Message</a>
+                    <div class="card-footer text-center" style="background-color: #fbfbfb;">
+                        <a href="#" class="banner_btn ">Message</a>
+                    </div>
                 </div>
             </div>
         </div>

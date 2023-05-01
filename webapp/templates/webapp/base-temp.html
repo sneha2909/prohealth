@@ -27,6 +27,11 @@
   <!-- font families -->
 
   <!-- Template Main CSS File -->
+  <style>
+    .list-group-flush > .list-group-item  a:hover{
+      color: #FF7009 !important ;
+    }
+  </style>
 
   {% block style %}
 
@@ -130,23 +135,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
-
-  <script>
-    const body = document.querySelector("body");
-    const navbar = document.querySelector(".navbar1");
-    const menuBtn = document.querySelector(".menu-btn");
-    const cancelBtn = document.querySelector(".cancel-btn");
-    menuBtn.onclick = () => {
-      navbar.classList.add("show");
-      menuBtn.classList.add("hide");
-      body.classList.add("disabled");
-    }
-    cancelBtn.onclick = () => {
-      body.classList.remove("disabled");
-      navbar.classList.remove("show");
-      menuBtn.classList.remove("hide");
-    }
+<script>
     window.onscroll = () => {
       this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
     }
