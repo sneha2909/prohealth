@@ -15,15 +15,15 @@ def calorie_tracker(request):
         foods = FoodModel.objects.order_by().all()
 
     else:
-        food_data = pd.read_csv("calorie_tracker_app/indian_meal.csv")
-        for index, row in food_data.iterrows():
-            model = FoodModel()
-            model.name = row['Meal']
-            model.carbs = row['Carbohydrates']
-            model.protein = row['Protein']
-            model.fats = row['Fats']
-            model.calories = row['Calories']
-            model.save()
+        # food_data = pd.read_csv("calorie_tracker_app/indian_meal.csv")
+        # for index, row in food_data.iterrows():
+        #     model = FoodModel()
+        #     model.name = row['Meal']
+        #     model.carbs = row['Carbohydrates']
+        #     model.protein = row['Protein']
+        #     model.fats = row['Fats']
+        #     model.calories = row['Calories']
+        #     model.save()
         foods = FoodModel.objects.order_by().all()
         
     consumed_food = ConsumeModel.objects.order_by().filter(user=request.user)
