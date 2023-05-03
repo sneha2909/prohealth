@@ -5,9 +5,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <link rel="stylesheet" href="{% static 'profiles/navstyle.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'profiles/navstyle.css' %}"> -->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<<<<<<< HEAD
   <title>ProHealth - {% block title %} {% endblock %}</title>
+=======
+  <!-- <title>Paathshaala - {% block title %} {% endblock %}</title> -->
+>>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
   <meta content="" name="description">
   <meta content="" name="keywords">
   <link rel="shortcut icon" href="{% static 'profiles/circular paathshala logo.png' %}" type="image/x-icon">
@@ -39,6 +43,22 @@
   <!-- font families -->
 
   <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}">
+  <link rel="stylesheet" href="{% static 'webapp/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'webapp/css/responsive.css' %}">
+  <style>
+    .list-group-item {
+      color: #fbfbfb !important;
+    }
+    .list-group> .list-group-flush a:hover{
+      color: #FF7009 ;
+    }
+    a:hover{
+      color: #FF7009 !important;
+    }
+    
+  </style>
+  
 
   {% block style %}
 
@@ -46,7 +66,145 @@
 </head>
 
 <body>
- 
+  <!--================ Navbar =================-->
+  <header class="header-area">
+    {% block submenu %}
+    {% endblock submenu %}
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark"
+      style="background-color: #0a0a0a;box-shadow: 0.5px 1px 10px #888888;" id="main navbar">
+      <div class="container-fluid mx-5">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <!-- <img src="{% static 'webapp/img/logo.png'%}"> -->
+          ProHealth</a>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="#features">Features</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span>Features</span>
+            </button>
+            {% if user.is_authenticated %}
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Features
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="{% url 'dashboard' %}">Workout plan</a></li>
+                    <li><a class="dropdown-item" href="#">Track your progress</a></li>
+                    <li><a class="dropdown-item" href="{% url 'diet' %}">Diet Recommendation</a></li>
+                    <li><a class="dropdown-item" href="{% url 'index' %}">Calorie Tracker</a></li>
+                    <li><a class="dropdown-item" href="{% url 'workout-tracker' %}">Workout Tracker</a></li>
+                    <li><a class="dropdown-item" href="{% url 'workout_buddy' %}">Workout buddy</a></li>
+                    <li><a class="dropdown-item" href="{% url 'forum' %}">ProHealth Community</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            {% elif not user.is_authenticated %}
+            <a class="nav-link" href="{% url 'home' %}#features">Features</a>
+            {% endif %}
+          </li>
+
+          <!-- </div> -->
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}#about-us">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="{% url 'loginregister' %}">Register/Login</a> -->
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'logout' %}" style="text-decoration: none !important;">
+              Logout
+            </a>
+            {% elif not user.is_authenticated %}
+            <a class="nav-link" href="{% url 'loginregister' %}" style="text-decoration: none !important;">
+              Login/Register
+            </a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+
+  </header>
+  <!-- ======= Sidebar ======= -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse" style="background-color: #0a0a0a; margin-top: 12vh;">
+    <div class="position-sticky sidebar-sticky" style="background-color: #0a0a0a; margin-top: 0.5rem;">
+      <div class="list-group list-group-flush" style="background-color: #0a0a0a;">
+        <!-- <a href="{% url 'home' %}" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+        <i class="fa-solid fa-house"></i><span> Home</span>
+      </a>
+      <hr> -->
+        <a href="{% url 'dashboard' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+            class="fa-solid fa-dumbbell"></i><span> Workout Recommendations</span>
+        </a>
+        <hr>
+        <a href="{% url 'diet' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+            class="fa-solid fa-pot-food fa-lg"></i><span>Diet Recommendations</span>
+        </a>
+        <hr>
+        <a href="{% url 'workout_buddy' %}" class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true">
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Workout Buddy</span>
+        </a>
+
+        <span> <a href="{% url 'friends' %}" class="list-group-item list-group-item-action py-2 ripple"
+            aria-current="true">
+            <i class="fa-solid fa-user-group fa-fw me-3" style="margin-left: 1.5rem;"></i><span>Friends</span>
+          </a></span>
+        <span>
+          <hr>
+
+          <a href="{% url 'progress' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fa-duotone fa-chart-simple fa-lg"></i><span> Progress</span>
+          </a>
+          <hr>
+
+          <a href="{% url 'workout-tracker' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-tachometer-alt fa-fw me-3"></i><span>Workout Tracker</span>
+          </a>
+          <span> <a href="{% url 'new-workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fa-solid fa-plus" style="margin-left: 1.5rem;"></i><span> Add Workout</span>
+            </a> </span>
+          <span> <a href="{% url 'all-workout' %}" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fa-solid fa-list" style="margin-left: 1.5rem;"></i><span> View All Workouts</span>
+            </a> </span>
+          <hr>
+          <a href="{% url 'index' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fa-solid fa-tally"></i><span>Calorie Tracker</span>
+          </a>
+          <hr>
+          <a href="{% url 'forum' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fa-solid fa-users"></i><span>ProHealth Community</span>
+          </a>
+          <hr>
+          <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span>
+          </a>
+
+      </div>
+    </div>
+  </nav>
+  <!-- End Sidebar-->
+
   {% block body %}
 
 
@@ -84,12 +242,18 @@
 
 
   </script>
-  
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 

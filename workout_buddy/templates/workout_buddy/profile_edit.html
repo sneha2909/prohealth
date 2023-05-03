@@ -91,10 +91,10 @@
                                                 <select id="gender" name="gender" class="form-control form-control-lg">
                                                     {% if user.gender is 'male' %}
                                                     <option value="male" selected>Male</option>
-                                                    <option vale="female">Female</option>
+                                                    <option value="female">Female</option>
                                                     {% else %}
                                                     <option value="male">Male</option>
-                                                    <option vale="female" selected>Female</option>
+                                                    <option value="female" selected>Female</option>
                                                     {% endif %}
 
                                                 </select>
@@ -110,7 +110,78 @@
                                         </div>
                                     </div>
 
+                                    <!-- Height and weight -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="height">Height (in cms)</label>
+                                                <input type="text" id="height" name="height" value="{{user.height}}"
+                                                    class="form-control form-control-lg" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="weight">Weight</label>
+                                                <input type="text" id="weight" name="weight" value="{{user.weight}}"
+                                                    class="form-control form-control-lg" />
 
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Age and activity level -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="age">Age</label>
+                                                <input type="text" id="age" name="age" value="{{user.age}}"
+                                                    class="form-control form-control-lg" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="act_lvl">Activity Level </i></label>
+                                                <select id="act_lvl" name="act_lvl"
+                                                    class="form-control form-control-lg"> 
+                                                    {% if user.activity_level is 'sedentary' %}
+                                                    <option value="sedentary" selected>Sedentary</option>
+                                                    <option vale="lightly active">Lightly active</option>
+                                                    <option value="moderately active">Moderately active</option>
+                                                    <option value="very active">Very active</option>
+                                                    <option value="extra active">Extra active</option>
+
+                                                    {% elif user.activity_level is 'lightly active' %}
+                                                    <option value="sedentary">Sedentary</option>
+                                                    <option vale="lightly active"selected>Lightly active</option>
+                                                    <option value="moderately active">Moderately active</option>
+                                                    <option value="very active">Very active</option>
+                                                    <option value="extra active">Extra active</option>
+
+                                                    {% elif user.activity_level is 'moderately active' %}
+                                                    <option value="sedentary">Sedentary</option>
+                                                    <option vale="lightly active">Lightly active</option>
+                                                    <option value="moderately active"selected>Moderately active</option>
+                                                    <option value="very active">Very active</option>
+                                                    <option value="extra active">Extra active</option>
+
+                                                    {% elif user.activity_level is 'extra active' %}
+                                                    <option value="sedentary">Sedentary</option>
+                                                    <option vale="lightly active">Lightly active</option>
+                                                    <option value="moderately active">Moderately active</option>
+                                                    <option value="very active">Very active</option>
+                                                    <option value="extra active"selected>Extra active</option>
+                                                    {% else %}
+                                                    <option value="sedentary">Sedentary</option>
+                                                    <option vale="lightly active">Lightly active</option>
+                                                    <option value="moderately active">Moderately active</option>
+                                                    <option value="very active">Very active</option>
+                                                    <option value="extra active">Extra active</option>
+                                                    {% endif %}
+                                                </select>
+                                                <!-- <input type="text" id="gender" name="gender" class="form-control form-control-lg" /> -->
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!-- Location(locality) and pincode -->
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
@@ -155,7 +226,8 @@
                                         <button type="reset" class="btn btn-light btn-lg" id="reset">Reset all</button>
                                         <button class="btn btn-light btn-lg" id="reset"> <a href="{% url 'profile' %}"
                                                 style="color: #0a0a0a;">Cancel</a> </button>
-                                        <button type="submit" class="btn btn-warning btn-lg ms-2" id="submit">Save Changes</button>
+                                        <button type="submit" class="btn btn-warning btn-lg ms-2" id="submit">Save
+                                            Changes</button>
                                     </div>
                                 </form>
                             </div>

@@ -139,11 +139,3 @@ button:focus {
   text-align: left;
   display: block;
 }
-a{
-  color: #0a0a0a;
-  font-size: medium;
-  text-decoration: none;
-}
-a:hover{
-  color: #FF7009 ;
-}
