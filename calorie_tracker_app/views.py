@@ -5,19 +5,15 @@ import csv
 
 # Create your views here.
 def calorie_tracker(request):
-    if FoodModel.objects.order_by().all().exists():
-        if request.method == "POST":
-            food_consumed = request.POST.get('food_consumed')
-            consume = FoodModel.objects.get(name=food_consumed)
-            user = request.user
-            consume = ConsumeModel(user=user, food_consumed=consume)
-            consume.save()
-            foods = FoodModel.objects.order_by().all()
-        else:
-            # food_data = pd.read_csv("calorie_tracker_app/indian_meal.csv")
-            # foods = food_data['Meal']
-            # print(foods)
-            foods = FoodModel.objects.order_by().all()
+
+    if request.method == "POST":
+        food_consumed = request.POST['food_consumed']
+        consume = FoodModel.objects.get(name=food_consumed)
+        user = request.user
+        consume = ConsumeModel(user=user, food_consumed=consume)
+        consume.save()
+        foods = FoodModel.objects.order_by().all()
+
     else:
         food_data = pd.read_csv("calorie_tracker_app/indian_meal.csv")
         for index, row in food_data.iterrows():
@@ -39,5 +35,5 @@ def delete_consume(request, id):
     consumed_food = ConsumeModel.objects.get(id=id)
     if request.method == 'POST':
         consumed_food.delete()
-        return redirect('/')
+        return redirect('/calorie-tracker/')
     return render(request, 'calorie_tracker_app/delete.html')

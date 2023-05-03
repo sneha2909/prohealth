@@ -54,7 +54,7 @@
                     <h4>Workout Plans</h4>
                     <hr>
                     <p>Get personalised workouts based on your goals! </p>
-                    <!-- <p><a href="{% url 'index' %}" style="text-decoration: none !important;"><u>Learn More</u></a></p> -->
+                    
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
@@ -209,7 +209,7 @@
                         <li><a href="#">Diet Recommendation</a></li>
                         <li><a href="#">Calorie Tracker</a></li>
                         <li><a href="#">Workout Tracker</a></li>
-                        <li><a href="{% url 'index' %}">Workout Buddy</a></li>
+                        <li><a href="{% url 'calorie_tracker_app:index' %}">Workout Buddy</a></li>
                         <li><a href="{% url 'forum' %}">ProHealth Community</a></li>
                     </ul>
                     {% elif not user.is_authenticated %}
