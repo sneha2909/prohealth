@@ -23,13 +23,13 @@
                     <!-- Copy the content below until next comment -->
                     <div class="card card-custom bg-white border-white border-0">
                         <div class="card-custom-img"
-                            style="background-image: url(/static/webapp/img/dashboard/squats.png);">
+                            style="background-image: url(/static/webapp/img/dashboard/{{exercise}}.png);">
                         </div>
                         <!-- <div class="card-custom-avatar">
                             <img class="img-fluid" src="{% static 'webapp/img/dashboard/squats.png' %}" alt="Avatar" />
                         </div> -->
                         <div class="card-body" style="overflow-y: auto">
-                            <h4 class="card-title">exercise</h4>
+                            <h4 class="card-title">{{ exercise }}</h4>
                             <!-- <p class="card-text">Card has minimum height set but will expand if more space is needed for
                                 card body content. You can use Bootstrap <a
                                     href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"

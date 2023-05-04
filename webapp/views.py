@@ -20,12 +20,12 @@ from pandas import DataFrame
 
 
 workouts = {
-    'workout1' : ['Squats', 'Push-ups', 'Lunges', 'Pull-ups', 'Plank', 'Burpees'],
-    'workout2' : ['Deadlifts', 'Bench Press', 'Bent-Over Rows', 'Overhead Press', 'Squats'],
-    'workout3' : ['Jumping Jacks', 'Mountain Climbers', 'Kettlebell Swings', 'Box Jumps', 'Battle Ropes', 'Rowing Machine Sprints'],
-    'workout4': ['Burpees', 'Dumbbell thrusters', 'Kettlebell Swings', 'Pull-ups', 'Push-ups'],
-    'workout5': ['Leg Press', 'Lat Pulldown', 'Leg Extension', 'Cable Curl', 'Bench Press'],
-    'workout6': ['Jump Squats', 'Medicine ball slams', 'Plank jacks', 'Push-up variations', 'Battle Ropes', 'Rowing Machine Sprints']
+    'workout1' : ('Squats', 'Push-ups', 'Lunges', 'Pull-ups', 'Plank', 'Burpees'),
+    'workout2' : ('Deadlifts', 'Bench Press', 'Bent-Over Rows', 'Overhead Press', 'Squats'),
+    'workout3' : ('Jumping Jacks', 'Mountain Climbers', 'Kettlebell Swings', 'Box Jumps', 'Battle Ropes', 'Rowing Machine Sprints'),
+    'workout4': ('Burpees', 'Dumbbell thrusters', 'Kettlebell Swings', 'Pull-ups', 'Push-ups'),
+    'workout5': ('Leg Press', 'Lat Pulldown', 'Leg Extension', 'Cable Curl', 'Bench Press'),
+    'workout6': ('Jump Squats', 'Medicine ball slams', 'Plank jacks', 'Push-ups', 'Battle Ropes', 'Rowing Machine Sprints')
 }
 
 
@@ -193,10 +193,11 @@ def dashboard(request):
     menu['recommended_exercise'] = menu['calories'].apply(
         lambda x: recommend_exercise(x, exercises, X_scaled))
 
-    recommendation = menu['recommended_exercise']
-    exercise_list = workouts[recommendation]
+    recommendation = menu['recommended_exercise'][0]
+    print(recommendation)
+    exercise_list = workouts[str(recommendation)]
     context = {
-        'workout_name' : recommendation,
+        'workout_name' : str(recommendation),
         'exercises': exercise_list
     }
     return render(request, 'webapp/workout_dashboard.html', context)
