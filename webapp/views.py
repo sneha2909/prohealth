@@ -28,6 +28,10 @@ workouts = {
     'workout6': ('Jump Squats', 'Medicine ball slams', 'Plank jacks', 'Push-ups', 'Battle Ropes', 'Rowing Machine Sprints')
 }
 
+images = {
+    'workout1' : ()
+}
+
 
 def load_food():
     food_data = pd.read_csv("webapp/indian_meal.csv")
@@ -94,7 +98,10 @@ def user_details(request):
         user.fav_gym_act1 = request.POST.get('fav1', '')
         user.fav_gym_act2 = request.POST.get('fav2', '')
         user.save()
-        load_food()
+        
+        if not FoodModel.objects.order_by().all().exists(): 
+            load_food()
+            
         messages.success(
             request, f'Your account has been created! You are now able to log in')
         return render(request, 'webapp/home.html')
@@ -113,6 +120,8 @@ def home(request):
     if request.user.is_authenticated:
         print("User is logged in :)")
         print(f"Username --> {request.user.username}")
+        if not FoodModel.objects.order_by().all().exists():
+            load_food()
         # load_model()
     else:
         print("User is not logged in :(")

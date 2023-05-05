@@ -18,44 +18,38 @@
                 </div>
             </div>
             {% for exercise in exercises %}
-            <div class="row pt-5 m-auto">
-                <div class="col-md-6 col-lg-6 pb-3">
-                    <!-- Copy the content below until next comment -->
-                    <div class="card card-custom bg-white border-white border-0">
-                        <div class="card-custom-img"
-                            style="background-image: url(/static/webapp/img/dashboard/{{exercise}}.png);">
-                        </div>
-                        <!-- <div class="card-custom-avatar">
-                            <img class="img-fluid" src="{% static 'webapp/img/dashboard/squats.png' %}" alt="Avatar" />
-                        </div> -->
-                        <div class="card-body" style="overflow-y: auto">
-                            <h4 class="card-title">{{ exercise }}</h4>
-                            <!-- <p class="card-text">Card has minimum height set but will expand if more space is needed for
-                                card body content. You can use Bootstrap <a
-                                    href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
-                                    target="_blank">card-decks</a> to align multiple cards nicely in a row.</p> -->
-                        </div>
-                        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
-                            <a href="#" class="btn btn-primary">Option</a>
-                            <a href="#" class="btn btn-outline-primary">Other option</a>
-                        </div> -->
-                    </div>
-                    <!-- Copy until here -->
-
+            <div class="card" style="width: 18rem;">
+                <img src="\static\webapp\img\dashboard\{{exercise}}.png" alt="">
+                <div class="card-body">
+                    <div class="card-title">{{exercise}}</div>
                 </div>
-                <!-- <div class="col-md-6 col-lg-6 pb-3">
+            </div>
+            <!-- <div class="row pt-5 m-auto">
+                <div class="col-md-6 col-lg-6 pb-3">
+                    Copy the content below until next comment -->
+            <!-- <div class="card card-custom bg-white border-white border-0">
+                <div class="card-custom-img"
+                    style="background-image: url(/static/webapp/img/dashboard/{{exercise}}.png)!important; ">
+                </div>
+                <div class="card-body" style="overflow-y: auto">
+                    <h4 class="card-title">{{ exercise }}</h4>
+                </div>
+            </div>
+
+        </div> --> 
+        <!-- <div class="col-md-6 col-lg-6 pb-3">
 
                     Add a style="height: XYZpx" to div.card to limit the card height and display scrollbar instead -->
-                    <!-- <div class="card card-custom bg-white border-white border-0">
+        <!-- <div class="card card-custom bg-white border-white border-0">
                         <div class="card-custom-img"
                             style="background-image: url(/static/webapp/img/dashboard/pull-ups.png);">
                         </div> -->
-                        <!-- <div class="card-custom-avatar">
+        <!-- <div class="card-custom-avatar">
                             <img class="img-fluid" src="{% static 'webapp/img/dashboard/pushups.png' %}" alt="Avatar" />
                         </div> -->
-                        <!-- <div class="card-body" style="overflow-y: auto">
+        <!-- <div class="card-body" style="overflow-y: auto">
                             <h4 class="card-title">Card title</h4> -->
-                            <!-- <p class="card-text">You can also set maximum height on and the card will not expand,
+        <!-- <p class="card-text">You can also set maximum height on and the card will not expand,
                                 instead a
                                 scrollbar in the card body will appear.</p>
                             <p class="card-text">Some example text to show the scrollbar.</p>
@@ -65,57 +59,57 @@
                                 inermis
                                 antiopam ut eum. Eos te zril labore laboramus, quem erant nam in. Ut sed molestie
                                 antiopam. At altera facilisis mel.</p> -->
-                        <!-- </div> -->
-                        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
+        <!-- </div> -->
+        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
                             <a href="#" class="btn btn-primary">Option</a>
                             <a href="#" class="btn btn-outline-primary">Other option</a>
                         </div> -->
-                    <!-- </div> -->
+        <!-- </div> -->
 
-                <!-- </div> --> 
-                <!-- <div class="col-md-6 col-lg-4 pb-3">
+        <!-- </div> -->
+        <!-- <div class="col-md-6 col-lg-4 pb-3">
                         <p>hello</p>
         
                     </div> -->
-            </div>
-            {% endfor %}
-            <!-- <div class="row pt-5 m-auto">
+        <!-- </div> -->
+        {% endfor %}
+        <!-- <div class="row pt-5 m-auto">
                 <div class="col-md-6 col-lg-6 pb-3">
 
                      <div class="card card-custom bg-white border-white border-0">
                         <div class="card-custom-img"
                             style="background-image: url(/static/webapp/img/dashboard/pushups.png);">
-                        </div> --> 
-                        <!-- <div class="card-custom-avatar">
+                        </div> -->
+        <!-- <div class="card-custom-avatar">
                             <img class="img-fluid" src="{% static 'webapp/img/dashboard/plank.png' %}" alt="Avatar" />
                         </div> -->
-                        <!-- <div class="card-body" style="overflow-y: auto">
+        <!-- <div class="card-body" style="overflow-y: auto">
                             <h4 class="card-title">Card title</h4> -->
-                            <!-- <p class="card-text">Card has minimum height set but will expand if more space is needed for
+        <!-- <p class="card-text">Card has minimum height set but will expand if more space is needed for
                                 card body content. You can use Bootstrap <a
                                     href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
                                     target="_blank">card-decks</a> to align multiple cards nicely in a row.</p> -->
-                        <!-- </div>
+        <!-- </div>
                         <div class="card-footer" style="background: inherit; border-color: inherit;">
                             <a href="#" class="btn btn-primary">Option</a>
                             <a href="#" class="btn btn-outline-primary">Other option</a>
                         </div> -->
-                    <!-- </div> -->
-                    <!-- Copy until here -->
+        <!-- </div> -->
+        <!-- Copy until here -->
 
-                <!-- </div> -->
-                <!-- <div class="col-md-6 col-lg-6 pb-3">
+        <!-- </div> -->
+        <!-- <div class="col-md-6 col-lg-6 pb-3">
 
                     <div class="card card-custom bg-white border-white border-0">
                         <div class="card-custom-img"
                             style="background-image: url(/static/webapp/img/dashboard/plank.png);">
                         </div> -->
-                        <!-- <div class="card-custom-avatar">
+        <!-- <div class="card-custom-avatar">
                             <img class="img-fluid" src="{% static 'webapp/img/dashboard/lunges.png' %}" alt="Avatar" />
                         </div> -->
-                        <!-- <div class="card-body" style="overflow-y: auto">
+        <!-- <div class="card-body" style="overflow-y: auto">
                             <h4 class="card-title">Card title</h4> -->
-                            <!-- <p class="card-text">You can also set maximum height on and the card will not expand,
+        <!-- <p class="card-text">You can also set maximum height on and the card will not expand,
                                 instead a
                                 scrollbar in the card body will appear.</p>
                             <p class="card-text">Some example text to show the scrollbar.</p>
@@ -126,57 +120,57 @@
                                 antiopam ut eum. Eos te zril labore laboramus, quem erant nam in. Ut sed molestie
                                 antiopam. At altera facilisis mel.</p>
                         </div> -->
-                        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
+        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
                             <a href="#" class="btn btn-primary">Option</a>
                             <a href="#" class="btn btn-outline-primary">Other option</a>
                         </div> -->
-                    <!-- </div>
+        <!-- </div>
 
                 </div> -->
-                <!-- <div class="col-md-6 col-lg-4 pb-3">
+        <!-- <div class="col-md-6 col-lg-4 pb-3">
                         <p>hello</p>
         
                     </div> -->
-            <!-- </div> -->
-            <!-- <div class="row pt-5 m-auto">
+        <!-- </div> -->
+        <!-- <div class="row pt-5 m-auto">
                 <div class="col-md-6 col-lg-6 pb-3">
 
                     <div class="card card-custom bg-white border-white border-0">
                         <div class="card-custom-img"
                             style="background-image: url(/static/webapp/img/dashboard/lunges.png);">
                         </div> -->
-                        <!-- <div class="card-custom-avatar">
+        <!-- <div class="card-custom-avatar">
                             <img class="img-fluid" src="{% static 'webapp/img/dashboard/burpees.png' %}" alt="Avatar" />
                         </div> -->
-                        <!-- <div class="card-body" style="overflow-y: auto">
+        <!-- <div class="card-body" style="overflow-y: auto">
                             <h4 class="card-title">Card title</h4> -->
-                            <!-- <p class="card-text">Card has minimum height set but will expand if more space is needed for
+        <!-- <p class="card-text">Card has minimum height set but will expand if more space is needed for
                                 card body content. You can use Bootstrap <a
                                     href="https://getbootstrap.com/docs/4.0/components/card/#card-decks"
                                     target="_blank">card-decks</a> to align multiple cards nicely in a row.</p> -->
-                        <!-- </div> -->
-                        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
+        <!-- </div> -->
+        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
                             <a href="#" class="btn btn-primary">Option</a>
                             <a href="#" class="btn btn-outline-primary">Other option</a>
                         </div> -->
-                    <!-- </div> -->
-                    <!-- Copy until here -->
+        <!-- </div> -->
+        <!-- Copy until here -->
 
-                <!-- </div> -->
-                <!-- <div class="col-md-6 col-lg-6 pb-3">
+        <!-- </div> -->
+        <!-- <div class="col-md-6 col-lg-6 pb-3">
 
                     
                     <div class="card card-custom bg-white border-white border-0">
                         <div class="card-custom-img"
                             style="background-image: url(/static/webapp/img/dashboard/burpees.png);">
                         </div> -->
-                        <!-- <div class="card-custom-avatar">
+        <!-- <div class="card-custom-avatar">
                             <img class="img-fluid" src="{% static 'webapp/img/dashboard/pull-ups.png' %}"
                                 alt="Avatar" />
                         </div> -->
-                        <!-- <div class="card-body" style="overflow-y: auto">
+        <!-- <div class="card-body" style="overflow-y: auto">
                             <h4 class="card-title">Card title</h4> -->
-                            <!-- <p class="card-text">You can also set maximum height on and the card will not expand,
+        <!-- <p class="card-text">You can also set maximum height on and the card will not expand,
                                 instead a
                                 scrollbar in the card body will appear.</p>
                             <p class="card-text">Some example text to show the scrollbar.</p>
@@ -186,21 +180,21 @@
                                 inermis
                                 antiopam ut eum. Eos te zril labore laboramus, quem erant nam in. Ut sed molestie
                                 antiopam. At altera facilisis mel.</p> -->
-                        <!-- </div> -->
-                        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
+        <!-- </div> -->
+        <!-- <div class="card-footer" style="background: inherit; border-color: inherit;">
                             <a href="#" class="btn btn-primary">Option</a>
                             <a href="#" class="btn btn-outline-primary">Other option</a>
                         </div> -->
-                    <!-- </div>
+        <!-- </div>
 
                 </div> -->
-                <!-- <div class="col-md-6 col-lg-4 pb-3">
+        <!-- <div class="col-md-6 col-lg-4 pb-3">
                         <p>hello</p>
         
                     </div> -->
-            <!-- </div> -->
-        </div>
-        <!--Main Navigation-->
+        <!-- </div> -->
+    </div>
+    <!--Main Navigation-->
     </div>
 </main>
 
