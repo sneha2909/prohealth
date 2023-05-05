@@ -10,12 +10,34 @@ from keras.models import load_model
 from sklearn.preprocessing import StandardScaler
 import pickle
 from scipy.optimize import differential_evolution
+from calorie_tracker_app.models import FoodModel
 
 
 #food recommendations
 import random
 from pandas import DataFrame
 # Create your views here.
+
+
+workouts = {
+    'workout1' : ('Squats', 'Push-ups', 'Lunges', 'Pull-ups', 'Plank', 'Burpees'),
+    'workout2' : ('Deadlifts', 'Bench Press', 'Bent-Over Rows', 'Overhead Press', 'Squats'),
+    'workout3' : ('Jumping Jacks', 'Mountain Climbers', 'Kettlebell Swings', 'Box Jumps', 'Battle Ropes', 'Rowing Machine Sprints'),
+    'workout4': ('Burpees', 'Dumbbell thrusters', 'Kettlebell Swings', 'Pull-ups', 'Push-ups'),
+    'workout5': ('Leg Press', 'Lat Pulldown', 'Leg Extension', 'Cable Curl', 'Bench Press'),
+    'workout6': ('Jump Squats', 'Medicine ball slams', 'Plank jacks', 'Push-ups', 'Battle Ropes', 'Rowing Machine Sprints')
+}
+
+def load_food():
+    food_data = pd.read_csv("webapp/indian_meal.csv")
+    for index, row in food_data.iterrows():
+        model = FoodModel()
+        model.name = row['Meal']
+        model.carbs = row['Carbohydrates']
+        model.protein = row['Protein']
+        model.fats = row['Fats']
+        model.calories = row['Calories']
+        model.save()
 
 
 def home(request):
@@ -71,6 +93,10 @@ def user_details(request):
         user.fav_gym_act1 = request.POST.get('fav1', '')
         user.fav_gym_act2 = request.POST.get('fav2', '')
         user.save()
+        
+        if not FoodModel.objects.order_by().all().exists(): 
+            load_food()
+            
         messages.success(
             request, f'Your account has been created! You are now able to log in')
         return render(request, 'webapp/home.html')
@@ -79,6 +105,7 @@ def user_details(request):
         # user.curr_wght=request.POST.get('curr_wt','')
         # user.tar_wght=request.POST.get('tar_wt','')
         # user.bmi=request.POST.get('bmi','')
+        
     return render(request, 'webapp/user_details.html', locals())
     # 	return redirect('school-feed', request.user.student.school.user.slug)
     # return redirect(request, 'home',request.user.slug)
@@ -88,6 +115,9 @@ def home(request):
     if request.user.is_authenticated:
         print("User is logged in :)")
         print(f"Username --> {request.user.username}")
+        if not FoodModel.objects.order_by().all().exists():
+            load_food()
+        # load_model()
     else:
         print("User is not logged in :(")
     return render(request, 'webapp/home.html', {'user': request.user})
@@ -167,8 +197,14 @@ def dashboard(request):
     menu['recommended_exercise'] = menu['calories'].apply(
         lambda x: recommend_exercise(x, exercises, X_scaled))
 
-    print(menu['recommended_exercise'])
-    return render(request, 'webapp/workout_dashboard.html')
+    recommendation = menu['recommended_exercise'][0]
+    print(recommendation)
+    exercise_list = workouts[str(recommendation)]
+    context = {
+        'workout_name' : str(recommendation),
+        'exercises': exercise_list
+    }
+    return render(request, 'webapp/workout_dashboard.html', context)
 
 
 def progress(request):
@@ -442,4 +478,5 @@ def diet_recommend(request):
 
     print("\nAverage Daily Calories:", totalcalories/7)
     return render(request, 'webapp/diet-recommendation.html', context)
+
 
