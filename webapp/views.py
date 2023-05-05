@@ -28,11 +28,6 @@ workouts = {
     'workout6': ('Jump Squats', 'Medicine ball slams', 'Plank jacks', 'Push-ups', 'Battle Ropes', 'Rowing Machine Sprints')
 }
 
-images = {
-    'workout1' : ()
-}
-
-
 def load_food():
     food_data = pd.read_csv("webapp/indian_meal.csv")
     for index, row in food_data.iterrows():
