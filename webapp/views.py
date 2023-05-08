@@ -204,7 +204,7 @@ def dashboard(request):
         'workout_name' : str(recommendation),
         'exercises': exercise_list
     }
-    return render(request, 'webapp/workout_dashboard.html', context)
+    return render(request, 'webapp/workout_dashboard.html',context)
 
 
 def progress(request):
