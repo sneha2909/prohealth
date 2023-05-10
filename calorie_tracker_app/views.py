@@ -33,7 +33,6 @@ def calorie_tracker(request):
             dictwriter_object = csv.DictWriter(f_object, fieldnames=field_names)
             dictwriter_object.writerow(progress)
 
-
     else:
         foods = FoodModel.objects.order_by().all()
         
