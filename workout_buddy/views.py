@@ -100,9 +100,9 @@ def workout(request):
 
 def message(request):
     send_mail(
-        'Connection Request',
-        'Let us connect and start working out together!',
+        'Connection Request', #subject
+        'Let us connect and start working out together!', #message
         request.user.email,
-        ['to@example.com'],
+        ['pushtikothi6@gmail.com'],
         fail_silently=False,
     )

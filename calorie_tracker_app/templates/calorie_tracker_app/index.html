@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <body style="background-color:#0a0a0a;">
@@ -8,11 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     
 =======
+=======
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
 {% extends "webapp/base-temp.html" %}
 {% load static %}
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'workout_buddy/landing.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 {% endblock style %}
 
 {% block body %}
@@ -70,6 +74,7 @@
                 <a href="{% url 'profile' %}" class="list-group-item list-group-item-action py-2 ripple"><i
                         class="fa-solid fa-user fa-fw me-3"></i><span>Profile</span>
                 </a>
+<<<<<<< HEAD
 >>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
 
 
@@ -85,6 +90,10 @@
             </div>
 =======
 >>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
+=======
+
+
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
         </div>
     </div>
 </nav>
@@ -100,16 +109,21 @@
                     <div class="form-group row">
                         {% csrf_token %}
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <label class="col-md-2">
                             <b class="text-white">Select Food To Add </b>
 =======
                         <label class="col-3 text-white">
                             <strong>Select Food To Add </strong>
 >>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
+=======
+                        <label class="col-3 text-white">
+                            <strong>Select Food To Add </strong>
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
                         </label>
                         <select class="col form-control" name="food_consumed" id="food_consumed">
                             {% for food in foods %}
-                            <option value="{{food.name}}">{{food.name}}</option>
+                            <option value="{{food.name}}">{{food}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -125,12 +139,17 @@
 
         <br>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="text-white">
         <h3 style="text-align:center">Calorie Goal</h3>
 =======
 
         
 >>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
+=======
+
+        
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
         <div class="row">
             <h3 style="text-align:center; color: #fbfbfb;margin: 1rem 0rem 1rem 0rem;">Calorie Goal</h3>
             <div class="col-md" style="margin: 1rem 2rem 1rem 2rem;">
@@ -144,6 +163,7 @@
 
         <br><br>
         <div class="row">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <div class="col-md-7" >
                 <div class="text-white">
@@ -159,6 +179,8 @@
                         <th style="text-align:center; color:black;">Calories(Kcal)</th>
                         <th style="text-align:center; color:black;">Remove Item</th>
 =======
+=======
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
             <div class="col-md-7">
                 <div>
                     <h4 style="text-align:center;color: #fbfbfb;"> Today's Consumption</h4>
@@ -172,7 +194,10 @@
                         <th style="text-align:center">Fats(gm)</th>
                         <th style="text-align:center">Calories(Kcal)</th>
                         <th style="text-align:center">Remove Item</th>
+<<<<<<< HEAD
 >>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
+=======
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
                     </tr>
                     {% for c in consumed_food %}
                     <tr>
@@ -189,6 +214,7 @@
                     {% endfor %}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <tr class=" text-white" style="background-color: #FF7009;">
                         <td style="text-align:center; color:black;" id="name"><b>Total</b></td>
                         <td style="text-align:center; color:black;" id="totalCarbs"><b></b></td>
@@ -197,13 +223,18 @@
                         <td style="text-align:center; color:black;" id="totalCalories"><b></b></td>
                         <td style="text-align:center; color:black;"><b></b></td>
 =======
+=======
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
                     <tr class="bg-info text-black">
                         <td style="text-align:center" id="name"><b>Total</b></td>
                         <td style="text-align:center" id="totalCarbs"><b></b></td>
                         <td style="text-align:center" id="totalProtien"><b></b></td>
                         <td style="text-align:center" id="totalFats"><b></b></td>
                         <td style="text-align:center" id="totalCalories"><b></b></td>
+<<<<<<< HEAD
 >>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
+=======
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
 
 
                     </tr>
@@ -212,6 +243,7 @@
             </div>
 
             <div class="col-md-5 ">
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <div class="text-white">
                     <h4 style="text-align:center">Today's breakdown</h4>
@@ -223,11 +255,17 @@
                 </div>
                 <div class="card-header text-black" style="background-color: #ff7009;">
 >>>>>>> 09b35ae6b177ec7552e629ee3728aed1770c6041
+=======
+                <div class="">
+                    <h4 style="text-align:center;color: #fbfbfb;">Today's breakdown</h4>
+                </div>
+                <div class="card-header text-black" style="background-color: #ff7009; ">
+>>>>>>> 93bf27e8f21d3afc2973302404d44d6d5c21a8fe
                     <h4 style="text-align:center">Nutrients breakdown</h4>
                 </div>
-                <div class="col-md-12">
+                <div class="col">
 
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <canvas id="myChart" width="400" height="400" ></canvas>
 
                 </div>
             </div>
@@ -278,7 +316,7 @@
                 label: '# of Votes',
                 data: [carbsP, protienP, fatsP],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 99, 132, 1)', 
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
 
@@ -289,9 +327,18 @@
                     'rgba(255, 206, 86, 1)',
 
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                
             }]
         },
+        options: { 
+            legend: {
+                labels: {
+                    fontColor: "#fbfbfb",
+                    fontSize: 14
+                }
+            }
+        }
 
     });
 

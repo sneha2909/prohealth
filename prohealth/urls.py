@@ -24,7 +24,7 @@ urlpatterns = [
     path('webapp/', include('webapp.urls')),
     path('workout-buddy/', include('workout_buddy.urls')),
     path('workout-tracker/', include('workout_tracker.urls')),
-    path('calorie-tracker/', include('calorie_tracker_app.urls')),
+    path('calorie-tracker/', include('calorie_tracker_app.urls')), 
     path('forum/', include('forum.urls')),
     # path(r'^$', views.login), # index / login page
     # path(r'^user/register$', views.register), # get register page / register user
