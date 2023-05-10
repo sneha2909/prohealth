@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 import numpy as np
 from .models import User
 from django.contrib import messages
-from .models import User_Info, User_Exercise_Info, Playlist_Check, Diet_Menu
 import pandas as pd
 from keras.models import load_model
 from sklearn.preprocessing import StandardScaler
