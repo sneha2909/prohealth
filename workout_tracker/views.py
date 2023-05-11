@@ -3,6 +3,10 @@ from django.contrib import messages # access django's `messages` module.
 from .models import Workout, Exercise
 from webapp.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import datetime
+import csv
+
+
 
 def dashboard(request):
     """Loads dashboard."""
@@ -32,6 +36,8 @@ def dashboard(request):
 def new_workout(request):
     """If GET, load new workout; if POST, submit new workout."""
 
+
+
     try:
         # Check for valid session:
         user = User.objects.get(id=request.user.id)
@@ -46,6 +52,7 @@ def new_workout(request):
             return render(request, "workout_tracker/add_workout.html", data)
 
         if request.method == "POST":
+            
             # Unpack request.POST for validation as we must add a field and cannot modify the request.POST object itself as it's a tuple:
             workout = {
                 "name": request.POST["name"],
@@ -70,8 +77,41 @@ def new_workout(request):
                 # If validation successful, load newly created workout page:
                 print("Workout passed validation and has been created.")
 
-                id = str(validated['workout'].id)
-                # Load workout:
+                id = str(validated['workout'].name)
+                data = []
+                field_names = ['date', 'time', 'workout1','workout2','workout3','workout4','workout5','workout6']
+                date = datetime.datetime.now().date()
+                time = datetime.datetime.now().time()
+                consumed_food = Workout.objects.order_by().filter(user=request.user)
+                print(consumed_food)
+                workout1_present = 0  # set to 0 if 'workout1' is not present
+                workout2_present = 0  # set to 0 if 'workout2' is not present
+                workout3_present = 0  # set to 0 if 'workout3' is not present
+                workout4_present = 0  # set to 0 if 'workout4' is not present
+                workout5_present = 0  # set to 0 if 'workout5' is not present
+                workout6_present = 0  # set to 0 if 'workout6' is not present
+                if(id=='workout1'):
+                    workout1_present=1
+                elif(id=='workout2'):
+                    workout2_present=1
+                elif(id=='workout3'):
+                    workout3_present=1
+                elif(id=='workout4'):
+                    workout4_present=1
+                elif(id=='workout5'):
+                    workout5_present=1
+                elif(id=='workout6'):
+                    workout6_present=1                
+
+
+                progress = {'date': date, 'time': time, 'workout1':workout1_present ,'workout2':workout2_present,'workout3':workout3_present,'workout4':workout4_present,'workout5':workout5_present,'workout6':workout6_present}
+                data.append(progress)
+                print(data)
+
+                with open('workout_tracker/workout.csv', 'a', newline='') as f_object:
+                    dictwriter_object = csv.DictWriter(f_object, fieldnames=field_names)
+                    dictwriter_object.writerow(progress)
+                                #Load workout:
                 return redirect('/workout-tracker/')
 
     except (KeyError, User.DoesNotExist) as err:
