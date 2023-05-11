@@ -11,6 +11,7 @@ from sklearn.preprocessing import StandardScaler
 import pickle
 from scipy.optimize import differential_evolution
 from calorie_tracker_app.models import FoodModel
+from django.template.defaulttags import register
 
 
 #food recommendations
@@ -456,11 +457,18 @@ def genetic(data):
     return currentBestSolution
 
 
+@register.filter(name='get_item')
+def get_item(dictionary, key):
+    return dictionary.get(key)
+
 def diet_recommend(request):
     totalcalories = 0
-    data = readcsv("webapp/indian_meal_increased.csv")
+    data = readcsv("webapp/indian_meal_increased_final.csv")
     food = data['Food']
+    videos = data['Links']
     recommended_food = []
+    recommended_video = []
+    recommendation = {}
     calories = data['Calories']
     currentBestSolution = genetic(data)
     
@@ -470,10 +478,19 @@ def diet_recommend(request):
         if currentBestSolution[i] == 1:
             totalcalories += calories[i]
             print(food[i])
+            embed = videos[i].replace("watch?v=", "embed/")
+            recommendation[food[i]] = embed
+            
+            print(type(videos[i]))
+            print(recommendation)
             recommended_food.append(food[i])
+            recommended_video.append(videos[i])
+            
 
     context = {
-        'recommended_food': recommended_food
+        # 'recommended_food': recommended_food,
+        # 'recommended_videos': recommended_video
+        'recommendations': recommendation
     }
 
     print("\nAverage Daily Calories:", totalcalories/7)

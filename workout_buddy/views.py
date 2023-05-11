@@ -98,11 +98,11 @@ def workout(request):
         'form': form,
     })
 
-def message(request):
-    send_mail(
-        'Connection Request', #subject
-        'Let us connect and start working out together!', #message
-        request.user.email,
-        ['pushtikothi6@gmail.com'],
-        fail_silently=False,
-    )
+# def message(request):
+#     send_mail(
+#         'Connection Request', #subject
+#         'Let us connect and start working out together!', #message
+#         request.user.email,
+#         ['pushtikothi6@gmail.com'],
+#         fail_silently=False,
+#     )
