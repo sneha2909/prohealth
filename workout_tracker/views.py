@@ -69,7 +69,7 @@ def new_workout(request):
             except KeyError:
                 # If validation successful, load newly created workout page:
                 print("Workout passed validation and has been created.")
-
+                print(validated['workout'].name)
                 id = str(validated['workout'].id)
                 # Load workout:
                 return redirect('/workout-tracker/')
